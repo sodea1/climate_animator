@@ -1,0 +1,37 @@
+{
+  "name": "javascript_project",
+  "version": "1.0.0",
+  "description": "Climate change poses an increasing threat to the health of our planet. The purpose of this project will be to create a readily digestible visual for climate change impacts that are inherently difficult to grasp due to their sheer scale. This application will present changes in sea level, sea ice area, temperature, greenhouse gas emissions, etc., over time using Node.js and d3.js visualizations.",
+  "main": "index.js",
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "watch": "webpack --watch --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sodea1/javascript_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sodea1/javascript_project/issues"
+  },
+  "homepage": "https://github.com/sodea1/javascript_project#readme",
+  "dependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "core-js": "^3.21.1",
+    "css-loader": "^6.7.1",
+    "mini-css-extract-plugin": "^2.6.0",
+    "regenerator-runtime": "^0.13.9",
+    "sass": "^1.49.10",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.71.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
