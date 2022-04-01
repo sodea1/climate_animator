@@ -2,7 +2,7 @@ const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Host': 'climate-change75.p.rapidapi.com',
-		'X-RapidAPI-Key': '6bb3ec8e98msh8b226fe3cdcba03p12e7dejsn34ae366e6c8b'
+		'X-RapidAPI-Key': '65ea497c18msh7fb47851fa239e9p1b9359jsna2d0f32ffc3f'
 	}
 };
 
