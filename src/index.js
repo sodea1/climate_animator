@@ -5,5 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.iceAreaData = iceCapArea();
   // window.sealvl = seaLevel();
   window.glacier = glaciers();
+  console.log(glacier);
 });
 

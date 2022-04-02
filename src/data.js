@@ -35,8 +35,38 @@ export const seaLevel = () => {
 	return seaLvlData;
 }
 
+// FOR TESTING COORDS //////////////////////////
+
+// const coords = [[-36.414697, 83.042322], [-35.820159, 82.681465], [-39.190083, 82.426804], [-40.668184, 82.740144], [-40.631649, 82.868689
+// 	], [-39.873271, 82.831663], [-39.172849, 82.79753], [-38.571387, 82.90879], [-36.951021,
+// 		83.136915
+// 	],
+// 	[
+// 		-37.39536,
+// 		83.30892
+// 	],
+// 	[
+// 		-36.112312,
+// 		83.365067
+// 	],
+// 	[
+// 		-35.826929,
+// 		83.271507
+// 	],
+// 	[
+// 		-36.414697,
+// 		83.042322
+// 	]
+// ]
+
 export const glaciers = () => {
-	console.log(glacierCoord);
+	const polyPos = [];
+	let projection = d3.geoEquirectangular();
+	coords.forEach((pos) => {
+		let pixlCoord = projection(pos);
+		polyPos.push(pixlCoord);
+	})
+	return polyPos;
 }
 
 
