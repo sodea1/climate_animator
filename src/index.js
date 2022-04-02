@@ -1,13 +1,9 @@
-//// HOW TO IMPORT CONSTANTS
-// import {testData} from './data.js';
-
-import DataUtils, { iceCapArea, tonnes } from "./data.js";
-
+import DataUtils, { glaciers, iceCapArea, seaLevel, tonnes } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.emissionsData = tonnes();
-  window.iceAreaData = iceCapArea();
-
-  // document.querySelector('').innerHTML = "";
+  // window.emissionsData = tonnes();
+  // window.iceAreaData = iceCapArea();
+  // window.sealvl = seaLevel();
+  window.glacier = glaciers();
 });
 

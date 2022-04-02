@@ -1,6 +1,7 @@
 const seaLvl = require('../data/seaLevel.json');
-let iceAreaMSM = require('../data/maxArcticIceMSM.json');
-let greenhouseGas = require('../data/greenhouseGasEmissions.json');
+const iceAreaMSM = require('../data/maxArcticIceMSM.json');
+const greenhouseGas = require('../data/greenhouseGasEmissions.json');
+const glacierCoord = require('../data/glaciers.json');
 
 export const iceCapArea = () => {
 	let iceData = {};
@@ -20,9 +21,23 @@ export const tonnes = () => {
 	return emissionsData;
 }
 
+export const seaLevel = () => {
+	let seaLvlData = {};
 
+	seaLvl.forEach((el) => {
+		if (el['year'] < 1993) {
+			seaLvlData[el['year']] = parseFloat(el['seaLevelFromTideGaugesInches']);
+		} else {
+			seaLvlData[el['year']] = parseFloat(el['seaLevelFromSatellitesInches']);
+		}
+	})
 
+	return seaLvlData;
+}
 
+export const glaciers = () => {
+	console.log(glacierCoord);
+}
 
 
 // export default DataUtils;
