@@ -1,23 +1,20 @@
-const fs = require('fs')
+//// HOW TO IMPORT CONSTANTS
+// import {testData} from './data.js';
 
-import { readFile } from 'fs';
-// document.addEventListener("DOMContentLoaded", () => {
-//     console.log("Hello world!");
-// });
+const seaLvl = require('../data/seaLevel.json');
+const maxIceMSM = require('../data/maxArcticIceMSM.json');
+import DataUtils from "./data.js";
 
-// import Example from "./scripts/functionality";
-// import DataUtils from "./scripts/data";
 
-readFile('../data/greenhouseGasEmissions', (err, data) => {
-  if (err) throw err;
-  console.log(data);
+document.addEventListener("DOMContentLoaded", () => {
+  console.log(seaLvl);
+  // seaLvl.forEach((el) => {
+  //   console.log(el.year);
+  //   console.log(el.seaLevelFromTideGaugesCentimeters);
+  // })
+  //  const dataset = new DataUtils();
+  //  console.log(dataset);
+  //  return dataset.seaLvl();
 });
 
-// document.addEventListener("DOMContentLoaded", () => { // when the DOM is loaded, get the main tag from index.html & create a new example passing in main object
-//     let dataHoe = new DataUtils();
-//     dataHoe.seaIceArctic(); 
-   
-//     console.log('this project is janky yo');
-//     let pee = document.querySelector('p');
-//     pee.innerHTML = 'fuck this is hard';
-// });
+
