@@ -1,24 +1,28 @@
 const seaLvl = require('../data/seaLevel.json');
-const maxIceMSM = require('../data/maxArcticIceMSM.json');
+let iceAreaMSM = require('../data/maxArcticIceMSM.json');
+let greenhouseGas = require('../data/greenhouseGasEmissions.json');
 
-export const testData = [
-	1, 2, 2, 2, 3, 4, 4
-]
-
-
-
-class DataUtils {
-	constructor(seaLvl) {
-		this.seaLvl = seaLvl;
-	}
-
-	iceCapArea(maxIceMSM) {
-		// [ {} {} {} {} ]
-		console.log(maxIceMSM);
-	}
+export const iceCapArea = () => {
+	let iceData = {};
+	iceAreaMSM.forEach((el) => {
+		iceData[el['year']] = parseFloat(el['minArcticIceMilSqMiles']);
+	})
+	return iceData;
 }
 
-export default DataUtils;
+export const tonnes = () => {
+	let emissionsData = {};
+
+	greenhouseGas.forEach((el) => {
+		emissionsData[el['year']] = parseInt(el['tonnes']);
+	})
+	
+	return emissionsData;
+}
+
+
+
+
 
 
 // export default DataUtils;
