@@ -51,10 +51,12 @@ h1 {
     padding: 10px;
 }
 
-.map-container {
+
+.graph-container {
     border: 2px solid black;
-    width: 800px;
-    height: 800px;
-    margin-top: 50px;
-    margin-left: 10px;
+    width: 400px;
+    height: 300px;
+    /* text-align: center; */
 }
+
+
