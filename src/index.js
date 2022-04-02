@@ -8,8 +8,11 @@ import DataUtils from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   d3.select("h1").style("background-color", "yellow");
-
-  console.log(seaLvl);
+  let projection = d3.geoEquirectangular();
+  
+  console.log(projection([-3.0026, 16.7666]));
+  
+  // console.log(seaLvl);
   // seaLvl.forEach((el) => {
   //   console.log(el.year);
   //   console.log(el.seaLevelFromTideGaugesCentimeters);
