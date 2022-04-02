@@ -1,12 +1,14 @@
 //// HOW TO IMPORT CONSTANTS
 // import {testData} from './data.js';
 
-const seaLvl = require('../data/seaLevel.json');
+let seaLvl = require('../data/seaLevel.json');
 const maxIceMSM = require('../data/maxArcticIceMSM.json');
 import DataUtils from "./data.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  d3.select("h1").style("background-color", "yellow");
+
   console.log(seaLvl);
   // seaLvl.forEach((el) => {
   //   console.log(el.year);
