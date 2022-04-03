@@ -1,8 +1,11 @@
-document.addEventListener("DOMContentLoaded", () => {
-  d3.json("iceExtent.json", function (error, iceExtent) {
+import { buildFramework, convertCoords, iceMapData, testMap } from "./map";
 
-    if (error) return console.error(error);
-    console.log(iceExtent);
-  })  
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  buildFramework();
+  convertCoords();
+  // convert coords to 'd' attribute positions
+
 });
 

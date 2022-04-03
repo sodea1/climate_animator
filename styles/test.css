@@ -56,9 +56,12 @@ h1 {
     padding: 10px;
 }
 
-g.ice-map {
+path {
 	stroke: #0066cc;
+	
 }
+
+
 
 
 

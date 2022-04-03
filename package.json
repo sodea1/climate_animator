@@ -24,10 +24,11 @@
   "dependencies": {
     "core-js": "^3.21.1",
     "css-loader": "^6.7.1",
+    "d3": "^7.4.2",
     "d3-polygon": "^3.0.1",
     "mini-css-extract-plugin": "^2.6.0",
     "regenerator-runtime": "^0.13.9",
-    "sass": "^1.49.10",
+    "sass": "^1.49.11",
     "sass-loader": "^12.6.0",
     "topojson": "^3.0.2",
     "topojson-client": "^3.1.0",
