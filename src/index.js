@@ -1,15 +1,12 @@
-import DataUtils, { glaciers, iceCapArea, seaIceMapData, seaLevel, tonnes } from "./data.js";
+import DataUtils, { glaciers, iceCapArea, seaLevel, tonnes } from "./data.js";
+import { seaIceMapData } from "./map.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // window.emissionsData = tonnes();
   // window.iceAreaData = iceCapArea();
-  // window.sealvl = seaLevel();
+  // window.sealvl = seaLevel();q
   window.glacier = seaIceMapData();
+  
 });
 
-
-
-// // from masie file {
-// "type": "FeatureCollection",
-//   "features": 
-// }
