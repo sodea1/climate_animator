@@ -1,4 +1,4 @@
-export let testing = d3.json("../data/masie_ice_topo.json");
+// export let testing = d3.json("../data/masie_ice_topo.json");
 
 //innerHeight/Width of window return pixel width/height
 // document.DocumentElement returns Element which is root of document aka <html> tag
