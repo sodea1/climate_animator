@@ -3,7 +3,7 @@ import { buildFramework, convertCoords, iceMapData, testMap } from "./map";
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  buildFramework();
+  // buildFramework();
   convertCoords();
   // convert coords to 'd' attribute positions
 
