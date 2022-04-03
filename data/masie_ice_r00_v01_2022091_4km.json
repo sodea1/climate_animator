@@ -7333,39 +7333,6 @@
             "properties": {
                 "INDEX": 18
             }
-        },
-        {
-            "type": "Feature",
-            "geometry": null,
-            "properties": {
-                "INDEX": 19
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Polygon",
-                "coordinates": [
-                    [
-                        [
-                            1522000,
-                            -2532000
-                        ],
-                        [
-                            1504000,
-                            -2570000
-                        ],
-                        [
-                            1542000,
-                            -2596000
-                        ],
-                        [
-                            1522000,
-                            -2532000
-                        ]
-                    ]
-                ]
-            }
         }
     ]
 }
