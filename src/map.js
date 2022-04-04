@@ -39,6 +39,7 @@ export function convertCoords() {
 
     let features = maps[0].features;
 
+    console.log(features);
     let width = 900;
     let height = 500;
     let margin = 50;
@@ -50,7 +51,8 @@ export function convertCoords() {
         // .attr("height", height);
         
 
-    let projection = d3.geoAzimuthalEquidistant();
+    let projection = d3.geoAzimuthalEquidistant()
+        .fitSize([width, height], {type: "FeatureCollection", features: features});
         // .scale(1)
         // .translate(100, 100);
     
