@@ -1,10 +1,10 @@
-import { buildFramework, convertCoords, iceMapData, testMap } from "./map";
+import { buildFramework, renderMap, iceMap1979, testMap, multiRender, calcArea } from "./map";
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // buildFramework();
-  convertCoords();
-  
+  // buildFramework();s
+  multiRender(renderMap); 
+  // calcArea(); 
 });
 
