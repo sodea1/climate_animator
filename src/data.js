@@ -1,22 +1,21 @@
 const seaLvl = require('../data/seaLevel.json');
 const iceAreaMSM = require('../data/maxArcticIceMSM.json');
 const greenhouseGas = require('../data/greenhouseGasEmissions.json');
-const test = require('../data/test.json');
 
-export const iceCapArea = () => {
+export const iceCapArea = (yr) => {
 	let iceData = {};
 	iceAreaMSM.forEach((el) => {
-		iceData[el['year']] = parseFloat(el['minArcticIceMilSqKilometers']);
+		iceData[el.year] = parseFloat(el.minArcticIceMilSqMiles);
 	});
-	return iceData;
-}
+	return iceData[yr];
+};
 
 export const tonnes = () => {
 	let emissionsData = {};
 
 	greenhouseGas.forEach((el) => {
-		emissionsData[el['year']] = parseInt(el['tonnes']);
-	})
+		emissionsData[el.year] = parseInt(el.tonnes);
+	});
 	
 	return emissionsData;
 }
@@ -25,15 +24,15 @@ export const seaLevel = () => {
 	let seaLvlData = {};
 
 	seaLvl.forEach((el) => {
-		if (el['year'] < 1993) {
-			seaLvlData[el['year']] = parseFloat(el['seaLevelFromTideGaugesInches']);
+		if (el.year < 1993) {
+			seaLvlData[el.year] = parseFloat(el.seaLevelFromTideGaugesInches);
 		} else {
-			seaLvlData[el['year']] = parseFloat(el['seaLevelFromSatellitesInches']);
+			seaLvlData[el.year] = parseFloat(el.seaLevelFromSatellitesInches);
 		}
-	})
+	});
 
 	return seaLvlData;
-}
+};
 
 // FOR TESTING COORDS //////////////////////////
 

@@ -45,7 +45,7 @@ table {
 /* ///////////////// RESET ABOVE ////////////////// */
 
 html {
-    /* background-image: linear-gradient(180deg, #F0F8FF 0%, #0066cc 90%); */
+    background-image: linear-gradient(180deg, #72B8FE 0%, #00008B 95%);
     min-height: 100%;
 }
 
@@ -56,9 +56,13 @@ h1 {
     padding: 10px;
 }
 
+g {
+	cursor: pointer;
+}
 
-
-
+div {
+	position: inherit;
+}
 
 
 
