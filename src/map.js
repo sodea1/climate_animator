@@ -1,23 +1,23 @@
-export const iceMap1979 = require("../ice_ext_197909.json");
-export const iceMap2016 = require("../ice_ext_201609.json");
+const iceMap1979 = require("../ice_ext_197909.json");
+const iceMap2016 = require("../ice_ext_201609.json");
 
-export function calcArea() {
-    let obj = iceMap1979.features[0].geometry;
-    console.log(obj);
-    console.log(d3.polygonArea(obj));
-}
+export const maps = [iceMap1979, iceMap2016];
 
 export function multiRender(func) {
-    let maps = [iceMap1979, iceMap2016];
-    maps.forEach((map) => {
+    let maps = 
+
+    maps.forEach((map, index) => {
         func(map);
+        if (index !== maps.length - 1) {
+            d3.select("svg").remove();
+        }
     });
 }
 
 export function renderMap(map) {
     let features = map.features;
 
-    let width = 900;
+    let width = 1000;
     let height = 500;
     
     let svg = d3.select("body")
@@ -28,10 +28,9 @@ export function renderMap(map) {
         
 
     let projection = d3.geoAzimuthalEqualArea()
-        .fitSize([width / 3, height / 1.15], {type: "FeatureCollection", features: features})
+        .fitSize([width / 2.5, height], {type: "FeatureCollection", features: features})
         .center([-10, -100])
         .rotate([0, -90]);
-        // .scale(1)
         // .translate(100, 100);
     
 
@@ -45,36 +44,5 @@ export function renderMap(map) {
         .attr('d', path)
         .attr('class', 'ice-coords')
         .attr("fill", "blue");
-
-}
-
-export function buildFramework() {
-
-    /// practice
-    d3.select("body")
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    d3.select("svg")
-        .append("path")
-
-    let pixels = projection([1170000.0, 2216000.0]);
-    console.log(pixels);
-
-    let coords = [
-        [100, 100],
-        [200, 200],
-        [400, 400],
-        [500, 500]
-    ];
-
-    let lineGenerator = d3.line();
-
-    let data = lineGenerator(coords);
-    console.log(data)
-
-    d3.select('path')
-        .attr('d', data);
 
 }
