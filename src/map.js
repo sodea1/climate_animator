@@ -35,30 +35,23 @@ export function convertCoords() {
     let features = iceMapData['features'];
     console.log(features);
 
-    let width = 800;
-    let height = 700;
+    let width = 600;
+    let height = 500;
     let margin = 50
     
     let svg = d3.select("body")
         .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+        .attr("viewBox", "10 10" + " " + width + " " + height)
+        // .attr("width", width)
+        // .attr("height", height);
+        
 
-    let projection = d3.geoMercator()
+    let projection = d3.geoEquirectangular()
         // .fitExtent([margin, margin, [width - margin, height - margin]], features)
-        // // .translate([width, height])
-        // // .scale(100);
+        // .translate([width, height])
+        // .scale(100);
 
     let path = d3.geoPath().projection(projection);
-    
-    // d3.json("../masie_ice_r00_v01_2022091_4km.json")
-    //     .then(function(data) {
-            
-    //         svg.append("path")
-    //             .attr("d", path(data));
-    //     }
-    // ) 
-    // projection.fitSize([width, height], features)
 
     svg.selectAll("path")
         .data(features)
@@ -66,7 +59,8 @@ export function convertCoords() {
         .append('path')
         .attr('d', path)
         .attr('class', 'ice-coords')
-        .attr("stroke", 'red')
+        .attr("fill", "#7FFFD4")
+
     
 }
 
