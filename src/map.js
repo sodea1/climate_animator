@@ -4,29 +4,32 @@ export const iceMap1990 = require("../ice_ext_199009.json");
 export const iceMap1980 = require("../ice_ext_198009.json");
 
 export function animate() {
+    let playButton = document.querySelector("#animation");
+
+    playButton.addEventListener("click", () => {
+        renderRepeat();
+    }, 1000);
+}
+
+const renderRepeat = () => {
     const maps = [
         iceMap1980, 
         iceMap1990, 
         iceMap2003, 
         iceMap2015
     ];
-
-    let playButton = document.querySelector("#animation");
-
-    playButton.addEventListener("click", () => {
-        // setTimeout(function() {
-        //     document.querySelector("#map").remove();
-        // }, 2000);
-
+    
+    let i = 1;
+    setInterval(() => {
         document.querySelector("#map").remove();
-
-        setTimeout(() => {
-            renderMap(iceMap1990);
-        }, 1000);
-    });
-    
-}
-    
+        renderMap(maps[i]);
+        i++
+        if (i > maps.length) {
+            i = 0;
+        }
+    }, 1000);
+   
+};
 
 export function renderMap(map) {
     let features = map.features;

@@ -7,7 +7,7 @@ export const iceCapArea = () => {
 	let iceData = {};
 	iceAreaMSM.forEach((el) => {
 		iceData[el['year']] = parseFloat(el['minArcticIceMilSqKilometers']);
-	})
+	});
 	return iceData;
 }
 
