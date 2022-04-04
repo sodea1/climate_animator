@@ -1,18 +1,26 @@
-export const iceMap2016 = require("../ice_ext_201609.json");
-export const iceMap1979 = require("../ice_ext_197909.json");
+export const iceMap2015 = require("../ice_ext_201509.json");
+export const iceMap2003 = require("../ice_ext_200309.json");
+export const iceMap1990 = require("../ice_ext_199009.json");
+export const iceMap1980 = require("../ice_ext_198009.json");
 
-export const maps = [iceMap1979, iceMap2016];
+export function animate() {
+    const maps = [
+        iceMap1980, 
+        iceMap1990, 
+        iceMap2003, 
+        iceMap2015
+    ];
 
-export function multiRender(func) {
-    let maps = 
-
-    maps.forEach((map, index) => {
-        func(map);
-        if (index !== maps.length - 1) {
-            d3.select("svg").remove();
-        }
+    let playButton = document.querySelector("#animation");
+    
+    playButton.addEventListener("click", () => {
+        setTimeout(function() {
+            document.querySelector("#map").remove();
+        }, 2000);
     });
+    
 }
+    
 
 export function renderMap(map) {
     let features = map.features;
@@ -24,15 +32,12 @@ export function renderMap(map) {
         .append("svg")
         .attr("id", "map")
         .attr("viewBox", "0 0" + " " + (width) + " " + height);
-        // .attr("width", width)
-        // .attr("height", height);
         
 
     let projection = d3.geoAzimuthalEqualArea()
         .fitSize([width / 2.5, height], {type: "FeatureCollection", features: features})
         .center([-10, -100])
         .rotate([0, -90]);
-        // .translate(100, 100);
     
 
     let path = d3.geoPath().projection(projection);
