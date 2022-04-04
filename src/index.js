@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // playButton.addEventListener("click", function() {
   //   animate();
   // });
-  renderMap(iceMap2015);
+  renderMap(iceMap1980);
   animate();
 });
 

@@ -12,11 +12,17 @@ export function animate() {
     ];
 
     let playButton = document.querySelector("#animation");
-    
+
     playButton.addEventListener("click", () => {
-        setTimeout(function() {
-            document.querySelector("#map").remove();
-        }, 2000);
+        // setTimeout(function() {
+        //     document.querySelector("#map").remove();
+        // }, 2000);
+
+        document.querySelector("#map").remove();
+
+        setTimeout(() => {
+            renderMap(iceMap1990);
+        }, 1000);
     });
     
 }
