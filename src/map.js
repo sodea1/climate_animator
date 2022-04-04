@@ -1,8 +1,11 @@
 import { schemeBrBG } from "d3";
 
-export const iceMapData = require("../masie_ice_r00_v01_2022091_4km.json");
+export const iceMap1979 = require("../ice_ext_197909.json");
+export const iceMap2016 = require("../ice_ext_201609.json");
 
 export function buildFramework() {
+
+    /// practice
     d3.select("body")
         .append("svg")
         .attr("width", 900)
@@ -32,12 +35,13 @@ export function buildFramework() {
 }
 
 export function convertCoords() {
-    let features = iceMapData['features'];
-    console.log(features);
+    let maps = [iceMap1979, iceMap2016];
 
-    let width = 600;
+    let features = maps[1].features;
+
+    let width = 1000;
     let height = 500;
-    let margin = 50
+    let margin = 50;
     
     let svg = d3.select("body")
         .append("svg")
@@ -46,10 +50,7 @@ export function convertCoords() {
         // .attr("height", height);
         
 
-    let projection = d3.geoEquirectangular()
-        // .fitExtent([margin, margin, [width - margin, height - margin]], features)
-        // .translate([width, height])
-        // .scale(100);
+    let projection = d3.geoAzimuthalEquidistant();
 
     let path = d3.geoPath().projection(projection);
 
@@ -60,8 +61,6 @@ export function convertCoords() {
         .attr('d', path)
         .attr('class', 'ice-coords')
         .attr("fill", "#7FFFD4")
-
-    
 }
 
 
