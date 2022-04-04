@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // buildFramework();
   convertCoords();
-  // convert coords to 'd' attribute positions
   
 });
 

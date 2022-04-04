@@ -37,20 +37,23 @@ export function buildFramework() {
 export function convertCoords() {
     let maps = [iceMap1979, iceMap2016];
 
-    let features = maps[1].features;
+    let features = maps[0].features;
 
-    let width = 1000;
+    let width = 900;
     let height = 500;
     let margin = 50;
     
     let svg = d3.select("body")
         .append("svg")
-        .attr("viewBox", "10 10" + " " + width + " " + height)
+        .attr("viewBox", "0 0" + " " + width + " " + height);
         // .attr("width", width)
         // .attr("height", height);
         
 
     let projection = d3.geoAzimuthalEquidistant();
+        // .scale(1)
+        // .translate(100, 100);
+    
 
     let path = d3.geoPath().projection(projection);
 
@@ -58,9 +61,11 @@ export function convertCoords() {
         .data(features)
         .enter()
         .append('path')
+        .attr("id", 'path-id')
         .attr('d', path)
         .attr('class', 'ice-coords')
-        .attr("fill", "#7FFFD4")
+        .attr("fill", "#7FFFD4");
+
 }
 
 
