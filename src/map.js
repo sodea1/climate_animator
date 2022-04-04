@@ -11,12 +11,16 @@ export function buildFramework() {
     d3.select("svg")
         .append("path")
 
+    let pixels = projection([1170000.0, 2216000.0]);
+    console.log(pixels);
+
     let coords = [
         [100, 100],
         [200, 200],
         [400, 400],
         [500, 500]
     ]
+
     let lineGenerator = d3.line();
 
     let data = lineGenerator(coords);
