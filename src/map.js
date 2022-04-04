@@ -1,5 +1,5 @@
-const iceMap1979 = require("../ice_ext_197909.json");
-const iceMap2016 = require("../ice_ext_201609.json");
+export const iceMap2016 = require("../ice_ext_201609.json");
+export const iceMap1979 = require("../ice_ext_197909.json");
 
 export const maps = [iceMap1979, iceMap2016];
 
@@ -22,6 +22,7 @@ export function renderMap(map) {
     
     let svg = d3.select("body")
         .append("svg")
+        .attr("id", "map")
         .attr("viewBox", "0 0" + " " + (width) + " " + height);
         // .attr("width", width)
         // .attr("height", height);
