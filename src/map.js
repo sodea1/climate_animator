@@ -5,6 +5,13 @@ export const iceMap2003 = require("../ice_ext_200309.json");
 export const iceMap1990 = require("../ice_ext_199009.json");
 export const iceMap1980 = require("../ice_ext_198009.json");
 
+export const years = [
+    [iceMap1980, 1980],
+    [iceMap1990, 1990],
+    [iceMap2003, 2003],
+    [iceMap2015, 2015]
+];
+
 export function animate() {
     let playButton = document.querySelector("#animation");
 
@@ -15,9 +22,9 @@ export function animate() {
 
 const renderRepeat = () => {
     const maps = [
-        iceMap1980, 
-        iceMap1990, 
-        iceMap2003, 
+        iceMap1980,
+        iceMap1990,
+        iceMap2003,
         iceMap2015
     ];
     
@@ -39,8 +46,8 @@ const renderRepeat = () => {
 
 const surfaceArea = (map) => {
     let years = [
-        [iceMap1980, 1990],
-        [iceMap1990, 1980],
+        [iceMap1980, 1980],
+        [iceMap1990, 1990],
         [iceMap2003, 2003],
         [iceMap2015, 2015]
     ];
@@ -49,8 +56,6 @@ const surfaceArea = (map) => {
     for(let i = 0; i < years.length; i++) {
         if (years[i][0] === map) {
             year = years[i][1];
-        } else {
-            new Error;
         }
     }
     let area = iceCapArea(year);

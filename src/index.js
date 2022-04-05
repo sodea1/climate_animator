@@ -1,9 +1,11 @@
+import { buttonMaker } from "./buttons";
 import { iceCapArea } from "./data";
 import { buildFramework, renderMap, iceMap1980, iceMap1990, iceMap2003, iceMap2015, testMap, multiRender, calcArea, intervalDisplay, maps, animate } from "./map";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderMap(iceMap1980);
   animate();  
+  buttonMaker();
 });
 
 
