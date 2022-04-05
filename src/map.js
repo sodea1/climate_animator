@@ -5,6 +5,10 @@ export const iceMap2003 = require("../ice_ext_200309.json");
 export const iceMap1990 = require("../ice_ext_199009.json");
 export const iceMap1980 = require("../ice_ext_198009.json");
 
+// class Map() {
+    
+// }
+
 export const years = [
     [iceMap1980, 1980],
     [iceMap1990, 1990],
@@ -83,15 +87,15 @@ export function renderMap(map) {
     let year = mapYear(map).toString();
 
     let width = 850;
-    let height = 200;
+    let height = 500;
     
     let svg = d3.select("div.map-here")
         .append("svg")
-        .attr("viewBox", "0 -50" + " " + width + " " + height)
+        .attr("viewBox", "-85 -50" + " " + width + " " + height)
         .attr("id", "map-box");
         
     let projection = d3.geoAzimuthalEqualArea()
-        .fitSize([width / 3, height], {type: "FeatureCollection", features: features})
+        .fitSize([width / 1.5, height], {type: "FeatureCollection", features: features})
         .center([0, -100])
         .rotate([0, -90]);
 
@@ -109,12 +113,9 @@ export function renderMap(map) {
         .attr("fill", "#99FFFF");
     
     d3.select("div.map-area")
-        .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)")
-        .style("font-size", "50px")
-        .style("color", "white");
+        .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)");
+     
     
-    d3.select("div.map-year")
-        .text(year)
-        .style("font-size", "100px")
-        .style("color", "white");
+    // d3.select("div.map-year")
+    //     .text(year)
 }
