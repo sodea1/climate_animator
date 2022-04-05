@@ -23,13 +23,17 @@ const renderRepeat = () => {
     
     let i = 1;
 
-    setInterval(() => {
-        document.querySelector("#map").remove();
+    let clearID = setInterval(() => {
+        if (i === maps.length) {
+            clearInterval(clearID);
+            return;
+        }
+
+        if (document.querySelector("div.map-area").innerHTML.includes("1,")) i = 0;
+
+        document.querySelector("#map-box").remove();
         renderMap(maps[i]);
         i++;
-        if (i > maps.length) {
-            renderMap(iceMap1980);
-        }
     }, 1000);
 };
 
@@ -45,23 +49,41 @@ const surfaceArea = (map) => {
     for(let i = 0; i < years.length; i++) {
         if (years[i][0] === map) {
             year = years[i][1];
-        } 
+        } else {
+            new Error;
+        }
     }
     let area = iceCapArea(year);
     return area;
 };
 
+const mapYear = (map) => {
+    let years = [
+        [iceMap1980, 1980],
+        [iceMap1990, 1990],
+        [iceMap2003, 2003],
+        [iceMap2015, 2015]
+    ];
+
+    for(let i = 0; i < years.length; i++) {
+        if (years[i][0] === map) {
+            return years[i][1];
+        }
+    }
+};
+
 export function renderMap(map) {
     let features = map.features;
-    let area = (surfaceArea(map)*1000).toString();
+    let area = (Math.round(surfaceArea(map) * 1000)).toLocaleString();
+    let year = mapYear(map).toString();
 
     let width = 1000;
     let height = 500;
     
-    let svg = d3.select("body")
+    let svg = d3.select("div.map-here")
         .append("svg")
-        .attr("id", "map")
-        .attr("viewBox", "0 0" + " " + (width) + " " + height);
+        .attr("viewBox", "0 0" + " " + width + " " + height)
+        .attr("id", "map-box");
         
     let projection = d3.geoAzimuthalEqualArea()
         .fitSize([width / 2.5, height], {type: "FeatureCollection", features: features})
@@ -71,10 +93,8 @@ export function renderMap(map) {
     let path = d3.geoPath().projection(projection);
 
     let g = svg.append("g")
-        .attr("class", "hover-area")
+        .attr("id", "map");
         
-        
-
     g.selectAll("path")
         .data(features)
         .enter()
@@ -82,10 +102,14 @@ export function renderMap(map) {
         .attr('d', path)
         .attr("data-area", area)
         .attr("fill", "#99FFFF")
-        .on("mouseover", function(d) {
-            d3.select(this).
-        });
-        
-
     
+    d3.select("div.map-area")
+        .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)")
+        .style("font-size", "50px")
+        .style("color", "white");
+    
+    d3.select("div.map-year")
+        .text(year)
+        .style("font-size", "100px")
+        .style("color", "white");
 }

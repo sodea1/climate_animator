@@ -3,10 +3,8 @@ import { buildFramework, renderMap, iceMap1980, iceMap1990, iceMap2003, iceMap20
 
 document.addEventListener("DOMContentLoaded", () => {
   renderMap(iceMap1980);
-  console.log(iceMap1980);
-  animate();
+  animate();  
 });
-
 
 
 
