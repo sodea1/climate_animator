@@ -10,3 +10,6 @@ const emissionsGraph = () => {
     .attr("height", height)
     .append("g");
 };
+
+
+/// NEED AN ARRAY OF TONNES

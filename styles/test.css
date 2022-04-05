@@ -50,11 +50,19 @@ html {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
-    font-size: 4em;
-    padding: 10px;
+	align-items: center;
+	font-size: 4em;
+	padding: 10px;
 	color: white;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 10px;
 }
 
 g {
@@ -63,6 +71,7 @@ g {
 
 div button {
 	padding: 10px 24px;
+	background-color: azure;
 }
 
 button#animation {
@@ -72,6 +81,7 @@ button#animation {
 div button:hover {
 	background-color: #00008B;
 	color: white;
+
 }
 
 

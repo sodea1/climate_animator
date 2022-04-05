@@ -106,7 +106,7 @@ export function renderMap(map) {
         .append('path')
         .attr('d', path)
         .attr("data-area", area)
-        .attr("fill", "#99FFFF")
+        .attr("fill", "#99FFFF");
     
     d3.select("div.map-area")
         .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)")
