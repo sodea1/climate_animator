@@ -53,6 +53,10 @@ html {
 		serif;
 }
 
+.workspace {
+	display: flex;
+}
+
 h1 {
 	position: relative;
 	text-align: center;
