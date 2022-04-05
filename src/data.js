@@ -16,7 +16,7 @@ export const tonnes = () => {
 	greenhouseGas.forEach((el) => {
 		emissionsData[el.year] = parseInt(el.tonnes);
 	});
-	
+	console.log(emissionsData);
 	return emissionsData;
 }
 

@@ -82,17 +82,17 @@ export function renderMap(map) {
     let area = (Math.round(surfaceArea(map) * 1000)).toLocaleString();
     let year = mapYear(map).toString();
 
-    let width = 1000;
-    let height = 500;
+    let width = 850;
+    let height = 200;
     
     let svg = d3.select("div.map-here")
         .append("svg")
-        .attr("viewBox", "0 0" + " " + width + " " + height)
+        .attr("viewBox", "0 -50" + " " + width + " " + height)
         .attr("id", "map-box");
         
     let projection = d3.geoAzimuthalEqualArea()
-        .fitSize([width / 2.5, height], {type: "FeatureCollection", features: features})
-        .center([-10, -100])
+        .fitSize([width / 3, height], {type: "FeatureCollection", features: features})
+        .center([0, -100])
         .rotate([0, -90]);
 
     let path = d3.geoPath().projection(projection);
