@@ -3,7 +3,7 @@ const iceAreaMSM = require('../data/maxArcticIceMSM.json');
 const greenhouseGas = require('../data/greenhouseGasEmissions.json');
 
 export const iceCapArea = (yr) => {
-	let iceData = {};
+	let iceData = [];
 	iceAreaMSM.forEach((el) => {
 		iceData[el.year] = parseFloat(el.minArcticIceMilSqMiles);
 	});
@@ -11,12 +11,14 @@ export const iceCapArea = (yr) => {
 };
 
 export const tonnes = () => {
-	let emissionsData = {};
+	let emissionsData = [];
 
 	greenhouseGas.forEach((el) => {
-		emissionsData[el.year] = parseInt(el.tonnes);
+		let yr = el.year;
+		let tonne = el.tonnes;
+		emissionsData.push({year: yr, emissions: tonne});
 	});
-	console.log(emissionsData);
+	
 	return emissionsData;
 }
 

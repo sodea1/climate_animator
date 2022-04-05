@@ -1,14 +1,17 @@
-//tonnes is {year: tonnes}
-const emissionsGraph = () => {
-  let data = 
+import { tonnes } from "./data";
+
+
+export const emissionsGraph = () => {
+  let data = tonnes();
   let width = 400;
-  let height = 400;
+  let height = 700;
 
   let svg = d3.select("#line-graph")
     .append("svg")
     .attr("width", width)
-    .attr("height", height)
-    .append("g");
+    .attr("height", height);
+
+  svg.append("g");
 };
 
 
