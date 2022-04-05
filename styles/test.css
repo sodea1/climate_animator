@@ -61,13 +61,21 @@ g {
 	cursor: pointer;
 }
 
-div {
-	position: inherit;
+div button {
+	padding: 10px 24px;
 }
 
-.buttons {
-	
+button#animation {
+	margin-left: 30px;
 }
+
+div button:hover {
+	background-color: #00008B;
+	color: white;
+}
+
+
+
 
 
 

@@ -19,27 +19,8 @@ export const buttonMaker = () => {
                 renderMap(map);
             }
 
-        })
+        });
     }
     
     
-}
-
-
-// document.getElementById("1980").addEventListener("click", () => {
-//     let currentMapYear = document.getElementsByClassName("map-year");
-//     let map;
-//     let year = 1980;
-//     years.forEach((el) => {
-//         if (el[1] === year) {
-//             map = el[0];
-//         }
-//     })
-//     if (currentMapYear === year) {
-//         return;
-//     } else {
-//         document.querySelector("#map-box").remove();
-//         renderMap(map);
-//     }
-
-// })
+};
