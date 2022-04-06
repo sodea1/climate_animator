@@ -115,6 +115,6 @@ export function renderMap(map) {
     d3.select("div.map-area")
         .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)");
      
-    // d3.select("div.map-year")
-    //     .text(year)
+    d3.select("div.map-year")
+        .text(year)
 }

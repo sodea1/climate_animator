@@ -112,5 +112,18 @@ div button:hover {
 	color: white;
 }
 
+/* Canvas */
+
+#emissions-vis {
+	width: 50%;
+}
+
+canvas {
+	background-color: white;
+}
+
+.emissions-info {
+	display: flex;
+}
 
 
