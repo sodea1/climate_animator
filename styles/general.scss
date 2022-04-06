@@ -12,8 +12,6 @@ html {
 	display: flex;
 }
 
-
-
 .subtitles {
 	display: flex;
 	justify-content: space-around;
@@ -23,10 +21,9 @@ html {
 }
 
 .descriptions {
-	display: flex;
-	justify-content: space-around;
 	align-items: center;
 }
+
 
 
 
@@ -58,8 +55,10 @@ button:hover {
 	margin-left: 10px;
 }
 
-.map-area, .map-year {
+#map-area, #map-year {
+	padding-top: 5px;
 	text-align: center;
+	width: 50%;
 }
 
 
@@ -85,10 +84,10 @@ canvas {
 	
 }
 
-.emissions-info {
-	display: flex;
-	justify-content: space-around;
-}
+// .emissions-info {
+// 	display: flex;
+// 	justify-content: space-around;
+// }
 
 .content-under-emissions {
 	display: flex;
