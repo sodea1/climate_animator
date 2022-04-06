@@ -37,6 +37,36 @@ export const initializeFog = () => {
         ctx.lineTo(x + 1, y);
         ctx.stroke();
     }
+
+    let play = document.querySelector("#animate-emissions");
+
+    play.addEventListener("click", () => {
+
+        function oneParticle() {
+            console.log(ctx);
+
+            // canvasEl = document.getElementById("dots");
+            // canvasEl.width = 1000;
+            // canvasEl.height = 700;
+            // ctx = canvasEl.getContext('2d');
+
+            // initializeFog();
+            // const ton = tonnes();
+            // const startNum = (ton[1].emissions / 1000);
+
+            // for (let i = 0; i < startNum; i++) {
+            let x = Math.random() * (width - 1);
+            let y = Math.random() * (height);
+
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + 100, y);
+            ctx.stroke();
+            // }
+        }
+        
+        oneParticle();
+    })
     
 }
 
@@ -44,7 +74,15 @@ export const addFog = () => {
     let data = tonnes();
     
     for(let i = 2; i < data.length; i++) { // set to two because first two numbers are same
-        let prev = data[i - 1]
+        let prev = data[i - 1];
+        let nextNum = data[i].emissions / 1000;
+        let diff = nextNum - prev;
+        
+        if (diff < 1) continue;
+
+        for(let count = 0; count < diff; count++) {
+            oneParticle();
+        }
     }
 }
 
@@ -56,7 +94,7 @@ export const oneFogCycle = () => {
 
     // Add One Particle
     export const oneParticle = () => {
-        console.log(ctx);
+        // console.log(ctx);
 
         canvasEl = document.getElementById("dots");
         canvasEl.width = 1000;
