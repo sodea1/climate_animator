@@ -76,6 +76,12 @@ h1 {
 	text-decoration: underline;
 }
 
+.descriptions {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
 a {
 	position: absolute;
 	top: 10px;
@@ -88,10 +94,10 @@ a {
 }
 
 button {
-	padding: 10px 24px;
+	padding: 20px 20px;
 	margin-top: 5px;
 	background-color: azure;
-	/* border: 1px solid grey; */
+	border-radius: 50%;
 }
 
 .active {
@@ -100,9 +106,8 @@ button {
 
 
 button:hover {
-	background-color: #00008B;
-	color: white;
-	padding: 12px 28px;
+	background-color: #40E0D0;
+	color: #00008B;
 }
 
 
@@ -146,4 +151,8 @@ canvas {
 .content-under-emissions {
 	display: flex;
 	justify-content: space-around;
+}
+
+#emissions-year {
+	font-size: 26px;
 }

@@ -17,10 +17,12 @@ export function animate() {
 
     playButton.addEventListener("click", () => {
         renderRepeat();
-    }, 250);
+    });
+    
 }
 
 const renderRepeat = () => {
+    console.log("Here");
     const maps = [
         iceMap1980,
         iceMap1990,
@@ -36,12 +38,12 @@ const renderRepeat = () => {
             return;
         }
 
-        if (document.querySelector("div.map-area").innerHTML.includes("1,")) i = 0;
+        if (document.querySelector("#map-area").innerHTML.includes("1,")) i = 0;
 
         document.querySelector("#map-box").remove();
         renderMap(maps[i]);
         i++;
-    }, 1000);
+    }, 500);
 };
 
 const surfaceArea = (map) => {
@@ -109,7 +111,7 @@ export function renderMap(map) {
         .attr("fill", "#40E0D0");
     
     d3.select("#map-area")
-        .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)");
+        .text(area + " " + "sq. miles (thousands)");
      
     d3.select("#map-year")
         .text(year);

@@ -78,6 +78,7 @@ export const initializeFog = () => {
             }
         }
 
+        // promise to be resolved (must resolve a setTimeout of X ms time - function as a pause)
         const sleep = (ms) => {
             return new Promise(resolve => setTimeout(resolve, ms));
         };
@@ -85,8 +86,9 @@ export const initializeFog = () => {
         const beginLoop = async () => {
             for(let num = 0; num < differences.length; num++) {
                 bubbleGenerator(differences[num], yrsArr[num]);
-                await sleep(50);
+                await sleep(75);
             }
+            document.querySelector("#emissions-year").innerHTML = yr;
         };
 
         beginLoop();
