@@ -10,4 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
   animate();  
   buttonMaker();
   initializeFog();
+
+  console.log(tonnes);
 });

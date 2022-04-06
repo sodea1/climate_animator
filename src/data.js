@@ -11,15 +11,16 @@ export const iceCapArea = (yr) => {
 };
 
 export const tonnes = () => {
-	let emissionsData = [];
+	// let emissionsData = [];
 
-	greenhouseGas.forEach((el) => {
-		let yr = el.year;
-		let tonne = el.tonnes;
-		emissionsData.push({year: yr, emissions: tonne});
-	});
+	// greenhouseGas.forEach((el) => {
+	// 	let yr = el.year;
+	// 	let tonne = el.tonnes;
+	// 	emissionsData.push({year: yr, emissions: tonne});
+	// });
 	
-	return emissionsData;
+	// return emissionsData;
+	return greenhouseGas;
 }
 
 export const seaLevel = () => {
