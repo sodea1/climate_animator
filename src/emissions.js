@@ -48,7 +48,6 @@ export const initializeFog = () => {
     document.querySelector("#emissions-year").innerHTML = firstYr;
 
     // ADD EVENT LISTENER
-
     let play = document.querySelector("#animate-emissions");
     play.addEventListener("click", () => {
 
@@ -64,8 +63,9 @@ export const initializeFog = () => {
             differences.push(amtBubbles);
         }
 
-        // CREATE RANDOM CIRCLE DIFF NUM OF TIMES
-        function addBubbles(diff) {
+        // Bubble Generator
+        function bubbleGenerator(diff, yr) {
+            document.querySelector("#emissions-year").innerHTML = yr;
             for (let i = 0; i < diff; i++) {
                 let x = Math.random() * (width - 1);
                 let y = Math.random() * (height);
@@ -77,25 +77,15 @@ export const initializeFog = () => {
                 ctx.fill();
             }
         }
-        
-    
-        // FOR EACH 
-        function incrementYear(amt, yr) {
-                setTimeout(() => {
-                    document.querySelector("#emissions-year").innerHTML = yr;
-                    addBubbles(amt);
-                }, 100);
-        }
 
         const sleep = (ms) => {
-            return new Promise(resolve => setTimeout(resolve, ms))
+            return new Promise(resolve => setTimeout(resolve, ms));
         };
-        
 
         const beginLoop = async () => {
             for(let num = 0; num < differences.length; num++) {
-                incrementYear(differences[num], yrsArr[num]);
-                await sleep(125);
+                bubbleGenerator(differences[num], yrsArr[num]);
+                await sleep(50);
             }
         };
 
