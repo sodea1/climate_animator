@@ -37,6 +37,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -65,6 +66,14 @@ h1 {
 	padding: 15px;
 	margin-bottom: 20px;
 	color: #000065;
+}
+
+.subtitles {
+	display: flex;
+	justify-content: space-around;
+	font-size: 2em;
+	color: #000065;
+	text-decoration: underline;
 }
 
 a {
@@ -107,11 +116,14 @@ button:hover {
 }
 
 
-/* Map Styling */
+/* Map Descriptors */
 
-.map-year, .map-area {
-	font-size: 32px;
+
+.info {
+	display: flex;
+	font-size: 1em;
 	color: #000065;
+	justify-content: space-around;
 }
 
 /* Canvas */
@@ -128,6 +140,10 @@ canvas {
 
 .emissions-info {
 	display: flex;
+	justify-content: space-around;
 }
 
-
+.content-under-emissions {
+	display: flex;
+	justify-content: space-around;
+}

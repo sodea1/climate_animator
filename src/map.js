@@ -106,11 +106,11 @@ export function renderMap(map) {
         .append('path')
         .attr('d', path)
         .attr("data-area", area)
-        .attr("fill", "#99FFFF");
+        .attr("fill", "#40E0D0");
     
-    d3.select("div.map-area")
+    d3.select("#map-area")
         .text("Surface Area:" + " " + area + " " + "sq. miles (thousands)");
      
-    d3.select("div.map-year")
-        .text(year)
+    d3.select("#map-year")
+        .text(year);
 }

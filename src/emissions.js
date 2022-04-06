@@ -4,7 +4,7 @@ var canvasEl;
 var ctx;
 var width;
 var height;
-var radius = 3;
+var radius = 2;
 
 export const initializeFog = () => {
 
@@ -12,27 +12,26 @@ export const initializeFog = () => {
 
     canvasEl = document.getElementById("dots");
     canvasEl.width = 800;
-    canvasEl.height = 800;
+    canvasEl.height = 600;
     ctx = canvasEl.getContext('2d');
 
     // DEFINE KEY VARIABLES
 
     const ton = tonnes(); // array of hashes
-    let firstYr = ton[0].year;
-    let lastYr = ton[ton.length - 1].year;
+        let firstYr = ton[0].year;
+        let lastYr = ton[ton.length - 1].year;
     const years = d3.range(firstYr, lastYr);
 
     const sequentialTonnes = [];
-    ton.forEach((hash) => {
-        sequentialTonnes.push(hash["tonnes"] / 1000000);
-    })
-
-    const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
+        ton.forEach((hash) => {
+            sequentialTonnes.push(hash["tonnes"] / 1000000);
+        });
 
     width = canvasEl.width;
     height = canvasEl.height;
-
+    
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
+    const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
 
     for(let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 1);
@@ -45,31 +44,44 @@ export const initializeFog = () => {
         ctx.fill();
     }
 
+    document.querySelector("#emissions-year").innerHTML = firstYr;
+
     // ADD EVENT LISTENER
 
     let play = document.querySelector("#animate-emissions");
     play.addEventListener("click", () => {
 
+        // CREATE RANDOM CIRCLE DIFF NUM OF TIMES
         function addBubbles(diff) {
             for (let i = 0; i < diff; i++) {
                 setTimeout(() => {
                     let x = Math.random() * (width - 1);
                     let y = Math.random() * (height);
 
-
                     ctx.beginPath();
                     ctx.arc(x, y, radius, 0, 2 * Math.PI);
                     ctx.stroke();
                     ctx.fillStyle = "#BEBEBE";
                     ctx.fill();
-                })
+                });
             }
         }
         
-        for(let j = 1; j < sequentialTonnes.length; j++) {
-            let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-            addBubbles(amtBubbles);
+    
+        // FOR EACH 
+        function incrementYear() {
+            for (let j = 1; j < sequentialTonnes.length; j++) {
+                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+                let nextYr = parseInt(years[j]);
+                if (j === sequentialTonnes.length - 1) nextYr = 2020;
+
+                setTimeout(() => {
+                    document.querySelector("#emissions-year").innerHTML = nextYr;
+                    addBubbles(amtBubbles);
+                }, 100);
+            }
         }
-        
-    })
-}
+
+        incrementYear();
+    });
+};
