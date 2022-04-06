@@ -1,0 +1,21 @@
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 20px 20px;
+  margin-top: 5px;
+  background-color: azure;
+  border-radius: 50%;
+}
+
+button:hover {
+  background-color: #40E0D0;
+  color: #00008B;
+}
+
+.hidden-button {
+  background-color: #40E0D0;
+  color: #00008B;
+}

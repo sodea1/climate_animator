@@ -160,23 +160,6 @@ h3#pad {
   padding-left: 25px;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-button {
-  padding: 20px 20px;
-  margin-top: 5px;
-  background-color: azure;
-  border-radius: 50%;
-}
-
-button:hover {
-  background-color: #40E0D0;
-  color: #00008B;
-}
-
 .geography {
   width: 50%;
   margin-left: 10px;
@@ -234,4 +217,26 @@ h1 {
 
 #linkedin {
   max-width: 35%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 20px 20px;
+  margin-top: 5px;
+  background-color: azure;
+  border-radius: 50%;
+}
+
+button:hover {
+  background-color: #40E0D0;
+  color: #00008B;
+}
+
+.hidden-button {
+  background-color: #40E0D0;
+  color: #00008B;
 }
