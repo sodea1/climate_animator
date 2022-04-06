@@ -13,25 +13,24 @@
   <script src="./dist/main.js"></script>
 </head>
 
-<header>
-  <nav class="please-work">
-    <div class="head-container">
-      <h1 class="title">Insidious</h1>
-    </div>
-    
-    <div class="icons">
-      <a href="https://www.linkedin.com/in/seanodea1">
-        <img src="LI-In-Bug.png" id="linkedin">
-      </a>
-    
-      <a href="https://github.com/sodea1">
-        <img src="./GitHub-Mark-64px.png" id="github">
-      </a>
-    </div>
-  </nav>
-</header>
-
 <body>
+  <header>
+    <nav class="please-work">
+      <div class="head-container">
+        <h1 class="title">Climatic Demise</h1>
+      </div>
+  
+      <div class="icons">
+        <a href="https://www.linkedin.com/in/seanodea1">
+          <img src="LI-In-Bug.png" id="linkedin">
+        </a>
+  
+        <a href="https://github.com/sodea1">
+          <img src="./GitHub-Mark-64px.png" id="github">
+        </a>
+      </div>
+    </nav>
+  </header>
   
   <div class="subtitles">
     <div>
@@ -61,15 +60,17 @@
 
     </section>
 
-    <section id="emissions-vis">
-      <p class="emissions-description">Each dot represents 1000 tonnes of greenhouse gas emissions.</p>
-      <button id="animate-emissions">START</button>
+    <section id="emissions-section">
+      <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions.</p>
+      <div class="emissions-display">
+        <button id="animate-emissions">START</button>
+        <p id="emissions-year"></p>
+      </div>
 
       <canvas id="dots">
         
       </canvas>
       
-      <p id="emissions-year">Year: </p>
     </section>
   </div>
 </body>

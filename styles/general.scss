@@ -12,7 +12,6 @@ html {
 	display: flex;
 }
 
-
 .subtitles {
 	display: flex;
 	justify-content: space-around;
@@ -38,11 +37,6 @@ button {
 	border-radius: 50%;
 }
 
-.active {
-	background-color: #00008B;
-}
-
-
 button:hover {
 	background-color: #40E0D0;
 	color: #00008B;
@@ -64,7 +58,7 @@ button:hover {
 
 /* Canvas */
 
-#emissions-vis {
+#emissions-section {
 	width: 50%;
 }
 
