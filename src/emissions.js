@@ -52,58 +52,53 @@ export const initializeFog = () => {
     let play = document.querySelector("#animate-emissions");
     play.addEventListener("click", () => {
 
+        let differences = [];
+        let yrsArr = [];
+
+        for (let j = 1; j < sequentialTonnes.length; j++) {
+            let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+            let nextYr;
+            if (j === sequentialTonnes.length - 1) nextYr = 2020;
+            nextYr = parseInt(years[j]);
+            yrsArr.push(nextYr);
+            differences.push(amtBubbles);
+        }
+
         // CREATE RANDOM CIRCLE DIFF NUM OF TIMES
         function addBubbles(diff) {
             for (let i = 0; i < diff; i++) {
-                // setTimeout(() => {
-                    let x = Math.random() * (width - 1);
-                    let y = Math.random() * (height);
+                let x = Math.random() * (width - 1);
+                let y = Math.random() * (height);
 
-                    ctx.beginPath();
-                    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-                    ctx.stroke();
-                    ctx.fillStyle = "#BEBEBE";
-                    ctx.fill();
-                // });
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.fillStyle = "#BEBEBE";
+                ctx.fill();
             }
         }
         
     
         // FOR EACH 
-        function incrementYear(amt) {
-            // for (let j = 1; j < sequentialTonnes.length; j++) {
-            //     let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-                // let nextYr = parseInt(years[j]);
-                // if (j === sequentialTonnes.length - 1) nextYr = 2020;
-
+        function incrementYear(amt, yr) {
                 setTimeout(() => {
-                    document.querySelector("#emissions-year").innerHTML = nextYr;
-                    addBubbles(amtBubbles);
+                    document.querySelector("#emissions-year").innerHTML = yr;
+                    addBubbles(amt);
                 }, 100);
-            // }
         }
 
-        // incrementYear();
+        const sleep = (ms) => {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        };
+        
 
-        function test() {
-            let differences = [];
-            let yrsArr = [];
-
-            for (let j = 1; j < sequentialTonnes.length; j++) {
-                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-                let nextYr;
-                if (j === sequentialTonnes.length - 1) nextYr = 2020;
-                nextYr = parseInt(years[j]);
-                yrsArr.push(nextYr);
-                differences.push(amtBubbles);
-            }
-
+        const beginLoop = async () => {
             for(let num = 0; num < differences.length; num++) {
-                incrementYear(differences[num]);
+                incrementYear(differences[num], yrsArr[num]);
+                await sleep(125);
             }
-            console.log(yrsArr)
-        }
+        };
 
-        test();
+        beginLoop();
     });
 };
