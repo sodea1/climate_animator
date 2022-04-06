@@ -5,10 +5,6 @@ export const iceMap2003 = require("../ice_ext_200309.json");
 export const iceMap1990 = require("../ice_ext_199009.json");
 export const iceMap1980 = require("../ice_ext_198009.json");
 
-// class Map() {
-    
-// }
-
 export const years = [
     [iceMap1980, 1980],
     [iceMap1990, 1990],

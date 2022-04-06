@@ -1,12 +1,5 @@
 import { tonnes } from "./data";
 
-
-// export class EmissionsFog {
-//     constructor() {
-//         // this.date = tonnes();
-//         this.createFog();
-//     }
-
 var canvasEl;
 var ctx;
 var width;

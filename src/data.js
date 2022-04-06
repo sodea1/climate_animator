@@ -11,15 +11,6 @@ export const iceCapArea = (yr) => {
 };
 
 export const tonnes = () => {
-	// let emissionsData = [];
-
-	// greenhouseGas.forEach((el) => {
-	// 	let yr = el.year;
-	// 	let tonne = el.tonnes;
-	// 	emissionsData.push({year: yr, emissions: tonne});
-	// });
-	
-	// return emissionsData;
 	return greenhouseGas;
 }
 
@@ -37,15 +28,4 @@ export const seaLevel = () => {
 	return seaLvlData;
 };
 
-
-
-/////////////// FETCH ///////////////////////
-
-// return fetch('https://climate-change75.p.rapidapi.com/seaIceArctic', options)
-// 	.then(response => response.json())
-// 	.then(response => {
-// 		let data = response;
-// 		return data;
-// 	})
-// 	.catch(err => console.error(err));
 

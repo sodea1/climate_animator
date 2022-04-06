@@ -82,6 +82,7 @@ button {
 	padding: 10px 24px;
 	margin-top: 5px;
 	background-color: azure;
+	/* border: 1px solid grey; */
 }
 
 .active {
@@ -89,7 +90,7 @@ button {
 }
 
 
-div button:hover {
+button:hover {
 	background-color: #00008B;
 	color: white;
 	padding: 12px 28px;
