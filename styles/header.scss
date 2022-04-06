@@ -1,24 +1,23 @@
 header {
+  display: flex;
+  justify-content: space-between;
   background-color: white;
   border-bottom: 2px solid #000065;
   margin-bottom: 10px;
 }
 
 h1 {
-  text-align: center;
   font-size: 3em;
   margin-bottom: 10px;
-  padding-top: 5px;
+  margin-left: 10px;
+  padding-top: 8px;
   color: #000065;
 }
 
-a {
-  position: absolute;
-
-  top: 5px;
-  right: 5px;
+div.icons {
+  
 }
 
-img {
-  max-width: 80%;
+#linkedin {
+  max-width: 8%;
 }

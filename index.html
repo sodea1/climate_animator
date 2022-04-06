@@ -13,25 +13,34 @@
   <script src="./dist/main.js"></script>
 </head>
 
-  <header>
-    <h1 class="title">Climate Changer</h1>
+<header>
+  <div class="head-container">
+    <h1 class="title">Insidious</h1>
+  </div>
   
-    <a href="https://github.com/sodea1">
-    <img src="./GitHub-Mark-64px.png">
+  <div class="icons">
+    <a href="https://www.linkedin.com/in/seanodea1">
+      <img src="LI-In-Bug.png" id="linkedin">
     </a>
+
+    <a href="https://github.com/sodea1">
+      <img src="./GitHub-Mark-64px.png" id="github">
+    </a>
+  </div>
     
-  </header>
+</header>
 
 <body>
   
   <div class="subtitles">
-    <h3>Arctic Sea Ice Extent</h3>
-    <h3>Greenhouse Gas Emissions</h3>
-  </div>
+    <div>
+      <h3>Arctic Sea Ice Extent</h3>
+    </div>
 
-    <p id="map-area"></p>
-    <p id="map-year"></p>
-    
+    <div>
+      <h3>Greenhouse Gas Emissions</h3>
+    </div>
+  </div>
 
   <div class="workspace">
     <section class="geography">
@@ -39,7 +48,6 @@
       <div class="map-here">
         <p id="map-area"></p>
         <p id="map-year"></p>
-
       </div>
 
       <div class="buttons">
@@ -53,10 +61,7 @@
     </section>
 
     <section id="emissions-vis">
-
-      <div class="emissions-info">
-        <p>Each dot represents 1000 tonnes of greenhouse gas emissions</p>
-      </div>
+      <p class="emissions-description">Each dot represents 1000 tonnes of greenhouse gas emissions.</p>
 
       <canvas id="dots">
         
