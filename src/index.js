@@ -9,6 +9,5 @@ document.addEventListener("DOMContentLoaded", () => {
   renderMap(iceMap1980);
   animate();  
   buttonMaker();
-  initializeFog(tonnes());
-  // oneParticle();
+  initializeFog();
 });

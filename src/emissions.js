@@ -11,6 +11,7 @@ var canvasEl;
 var ctx;
 var width;
 var height;
+var radius = 2;
 
 export const initializeFog = () => {
 
@@ -18,12 +19,16 @@ export const initializeFog = () => {
 
     canvasEl = document.getElementById("dots");
     canvasEl.width = 1000;
-    canvasEl.height = 700;
+    canvasEl.height = 800;
     ctx = canvasEl.getContext('2d');
 
 
     const ton = tonnes();
-    const startNum = (ton[0].emissions / 1000);
+    const startNum = (ton[0].emissions / 1000000);
+    console.log(startNum);
+
+    // console.log((34807 259 099 - 9350528));
+
 
     width = canvasEl.width;
     height = canvasEl.height;
@@ -33,9 +38,11 @@ export const initializeFog = () => {
         let y = Math.random() * (height); 
 
         ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(x + 1, y);
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.stroke();
+        ctx.fillStyle = "red";
+        ctx.fill();
+
     }
 
     // ADD EVENT LISTENER
@@ -44,23 +51,22 @@ export const initializeFog = () => {
 
     play.addEventListener("click", () => {
 
-        // function addOne() {
-        //     let x = Math.random() * (width - 1);
-        //     let y = Math.random() * (height);
+        let endNum = ton[ton.length - 1].emissions / 10000;
+        let diff = endNum - startNum;
+        let largeBubbleDiff = diff / 1000;
 
-        //     ctx.beginPath();
-        //     ctx.moveTo(x, y);
-        //     ctx.lineTo(x + 100, y); // LINE VS DOT
-        //     ctx.stroke();
-        // }
-        for (let i = 0; i < 4; i++) {
-            let x = Math.random() * (width - 1);
-            let y = Math.random() * (height); 
+        
+        for (let i = 0; i < largeBubbleDiff; i++) {
+            setTimeout(() => {
+                let x = Math.random() * (width - 1);
+                let y = Math.random() * (height);
+                // }
 
-            ctx.beginPath();
-            ctx.moveTo(x, y);
-            ctx.lineTo(x + 100, y);
-            ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(x, y, radius * 4, 0, 2 * Math.PI);
+                ctx.stroke();
+            })
+            
         }
 
         
