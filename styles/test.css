@@ -45,7 +45,8 @@ table {
 /* ///////////////// RESET ABOVE ////////////////// */
 
 html {
-    background-image: linear-gradient(180deg, #72B8FE 0%, #00008B 95%);
+	background-color: cornsilk;
+    /* background-image: linear-gradient(180deg, #72B8FE 0%, #00008B 95%); */
     min-height: 100%;
 		font-family: Georgia,
 		'Times New Roman',
@@ -63,7 +64,7 @@ h1 {
 	font-size: 4em;
 	padding: 15px;
 	margin-bottom: 20px;
-	color: white;
+	color: #000065;
 }
 
 a {
@@ -109,7 +110,7 @@ div button:hover {
 
 .map-year, .map-area {
 	font-size: 32px;
-	color: white;
+	color: #000065;
 }
 
 /* Canvas */
@@ -119,7 +120,9 @@ div button:hover {
 }
 
 canvas {
-	background-color: white;
+	/* background-color: white; */
+	/* margin: 10px; */
+	
 }
 
 .emissions-info {

@@ -15,41 +15,41 @@ var radius = 3;
 
 export const initializeFog = () => {
 
-    // CREATE FIRST FOG MAP
+    // CREATE CANVAS
 
     canvasEl = document.getElementById("dots");
-    canvasEl.width = 1000;
+    canvasEl.width = 800;
     canvasEl.height = 800;
     ctx = canvasEl.getContext('2d');
 
+    // DEFINE KEY VARIABLES
 
     const ton = tonnes(); // array of hashes
     let firstYr = ton[0].year;
     let lastYr = ton[ton.length - 1].year;
     const years = d3.range(firstYr, lastYr);
+
     const sequentialTonnes = [];
+    ton.forEach((hash) => {
+        sequentialTonnes.push(hash["tonnes"] / 1000000);
+    })
 
-    // ton.forEach((hash) => {
-    //     sequentialTonnes.push(hash[tonnes]);
-    // })
-
-    console.log(sequentialTonnes)
-
-    const startNum = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
+    const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
 
     width = canvasEl.width;
     height = canvasEl.height;
 
-    for(let i = 0; i < startNum; i++) {
+    // RENDER FIRST YEAR'S TONNES IN CIRCLES
+
+    for(let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 1);
         let y = Math.random() * (height); 
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.stroke();
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "#BEBEBE";
         ctx.fill();
-
     }
 
     // ADD EVENT LISTENER
@@ -57,11 +57,7 @@ export const initializeFog = () => {
     let play = document.querySelector("#animate-emissions");
     play.addEventListener("click", () => {
 
-        let endNum = ton[ton.length - 1].tonnes / 10000;
-        let diff = endNum - startNum;
-        let largeBubbleDiff = diff / 1000;
-
-        function goTime(diff) {
+        function addBubbles(diff) {
             for (let i = 0; i < diff; i++) {
                 setTimeout(() => {
                     let x = Math.random() * (width - 1);
@@ -69,16 +65,17 @@ export const initializeFog = () => {
 
 
                     ctx.beginPath();
-                    ctx.arc(x, y, radius * 4, 0, 2 * Math.PI);
+                    ctx.arc(x, y, radius, 0, 2 * Math.PI);
                     ctx.stroke();
-                    ctx.fillStyle = "red";
+                    ctx.fillStyle = "#BEBEBE";
                     ctx.fill();
                 })
             }
         }
-        goTime(largeBubbleDiff);
-        for(let j = 0; j < 4; j++) {
-
+        
+        for(let j = 1; j < sequentialTonnes.length; j++) {
+            let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+            addBubbles(amtBubbles);
         }
         
     })
