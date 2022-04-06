@@ -12,6 +12,7 @@ html {
 	display: flex;
 }
 
+
 .subtitles {
 	display: flex;
 	justify-content: space-around;
@@ -21,8 +22,8 @@ html {
 	font-style: italic;
 }
 
-h3 {
-	padding-left: 20px;
+h3#pad {
+	padding-left: 25px;
 }
 
 .buttons {

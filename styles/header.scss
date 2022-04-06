@@ -1,9 +1,19 @@
 header {
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
   background-color: white;
   border-bottom: 2px solid #000065;
   margin-bottom: 10px;
+}
+
+.please-work {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons {
+  margin-top: 5px;
+  width: 200px;
 }
 
 h1 {
@@ -14,10 +24,8 @@ h1 {
   color: #000065;
 }
 
-div.icons {
-  
-}
 
 #linkedin {
-  max-width: 8%;
+  max-width: 35%;
 }
+
