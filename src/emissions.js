@@ -19,7 +19,8 @@ export const initializeFog = () => {
 
     const ton = tonnes(); // array of hashes
         let firstYr = ton[0].year;
-        let lastYr = ton[ton.length - 1].year;
+        let lastYr = parseInt(ton[ton.length - 1].year) + 1;
+        console.log(lastYr)
     const years = d3.range(firstYr, lastYr);
 
     const sequentialTonnes = [];
@@ -54,7 +55,7 @@ export const initializeFog = () => {
         // CREATE RANDOM CIRCLE DIFF NUM OF TIMES
         function addBubbles(diff) {
             for (let i = 0; i < diff; i++) {
-                setTimeout(() => {
+                // setTimeout(() => {
                     let x = Math.random() * (width - 1);
                     let y = Math.random() * (height);
 
@@ -63,25 +64,46 @@ export const initializeFog = () => {
                     ctx.stroke();
                     ctx.fillStyle = "#BEBEBE";
                     ctx.fill();
-                });
+                // });
             }
         }
         
     
         // FOR EACH 
-        function incrementYear() {
-            for (let j = 1; j < sequentialTonnes.length; j++) {
-                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-                let nextYr = parseInt(years[j]);
-                if (j === sequentialTonnes.length - 1) nextYr = 2020;
+        function incrementYear(amt) {
+            // for (let j = 1; j < sequentialTonnes.length; j++) {
+            //     let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+                // let nextYr = parseInt(years[j]);
+                // if (j === sequentialTonnes.length - 1) nextYr = 2020;
 
                 setTimeout(() => {
                     document.querySelector("#emissions-year").innerHTML = nextYr;
                     addBubbles(amtBubbles);
                 }, 100);
-            }
+            // }
         }
 
-        incrementYear();
+        // incrementYear();
+
+        function test() {
+            let differences = [];
+            let yrsArr = [];
+
+            for (let j = 1; j < sequentialTonnes.length; j++) {
+                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+                let nextYr;
+                if (j === sequentialTonnes.length - 1) nextYr = 2020;
+                nextYr = parseInt(years[j]);
+                yrsArr.push(nextYr);
+                differences.push(amtBubbles);
+            }
+
+            for(let num = 0; num < differences.length; num++) {
+                incrementYear(differences[num]);
+            }
+            console.log(yrsArr)
+        }
+
+        test();
     });
 };
