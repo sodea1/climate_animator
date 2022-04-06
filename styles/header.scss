@@ -4,20 +4,21 @@ header {
   margin-bottom: 10px;
 }
 
-.please-work {
+.nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .icons {
   margin-top: 5px;
-  width: 200px;
+  width: 180px;
 }
 
 h1 {
   font-size: 3em;
   margin-left: 10px;
-  margin-top: 8px;
+  margin-top: 16px;
   color: #000065;
 }
 

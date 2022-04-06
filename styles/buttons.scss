@@ -4,15 +4,17 @@
 }
 
 button {
-  padding: 20px 20px;
+  padding: 8px 10px;
   margin-top: 5px;
   background-color: azure;
-  border-radius: 50%;
+  border-radius: 20%;
+  font-family: fantasy;
 }
 
 button:hover {
   background-color: #40E0D0;
   color: #00008B;
+  transition: all .5s;
 }
 
 .hidden-button {

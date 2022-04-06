@@ -16,13 +16,16 @@ export function animate() {
     let playButton = document.querySelector("#animation");
 
     playButton.addEventListener("click", () => {
+        years.forEach((yr) => {
+            document.getElementById(yr[1]).classList.remove("hidden-button");
+        });
+        
         renderRepeat();
     });
     
 }
 
 const renderRepeat = () => {
-    console.log("Here");
     const maps = [
         iceMap1980,
         iceMap1990,
@@ -79,10 +82,22 @@ const mapYear = (map) => {
     }
 };
 
+function removeColor(year) {
+    years.forEach((yr) => {
+        if (yr[1] === year) {
+            document.getElementById(yr[1]).classList.add("hidden-button");
+        } else {
+            document.getElementById(yr[1]).classList.remove("hidden-button");
+        }
+    });
+}
+
 export function renderMap(map) {
     let features = map.features;
     let area = (Math.round(surfaceArea(map) * 1000)).toLocaleString();
-    let year = mapYear(map).toString();
+    let year = mapYear(map);
+
+    removeColor(year);
 
     let width = 850;
     let height = 500;

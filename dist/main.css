@@ -136,11 +136,10 @@ table {
   border-spacing: 0;
 }
 
-html {
+header, body {
+  font-family: fantasy;
   background-color: cornsilk;
-  /* background-image: linear-gradient(180deg, #72B8FE 0%, #00008B 95%); */
   min-height: 100%;
-  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .workspace {
@@ -151,7 +150,7 @@ html {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 20px;
+  font-size: 24px;
   color: #000065;
   font-style: italic;
 }
@@ -170,48 +169,27 @@ h3#pad {
   text-align: center;
 }
 
-/* Map Descriptors */
-/* Canvas */
-#emissions-section {
-  width: 50%;
-}
-
-.emissions-description {
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.content-under-emissions {
-  display: flex;
-  justify-content: space-around;
-}
-
-#emissions-year {
-  position: absolute;
-  font-size: 40px;
-}
-
 header {
   background-color: white;
   border-bottom: 2px solid #000065;
   margin-bottom: 10px;
 }
 
-.please-work {
+.nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .icons {
   margin-top: 5px;
-  width: 200px;
+  width: 180px;
 }
 
 h1 {
   font-size: 3em;
   margin-left: 10px;
-  margin-top: 8px;
+  margin-top: 16px;
   color: #000065;
 }
 
@@ -225,18 +203,45 @@ h1 {
 }
 
 button {
-  padding: 20px 20px;
+  padding: 8px 10px;
   margin-top: 5px;
   background-color: azure;
-  border-radius: 50%;
+  border-radius: 20%;
+  font-family: fantasy;
 }
 
 button:hover {
   background-color: #40E0D0;
   color: #00008B;
+  transition: all 0.5s;
 }
 
 .hidden-button {
   background-color: #40E0D0;
   color: #00008B;
+}
+
+#emissions-section {
+  width: 50%;
+}
+
+.emissions-description {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.emissions-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#emissions-year {
+  font-size: 30px;
+  margin-right: 55px;
+}
+
+#animate-emissions {
+  margin-bottom: 10px;
 }

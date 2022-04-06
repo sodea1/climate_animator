@@ -20,7 +20,6 @@ export const initializeFog = () => {
     const ton = tonnes(); // array of hashes
         let firstYr = ton[0].year;
         let lastYr = parseInt(ton[ton.length - 1].year) + 1;
-        console.log(lastYr)
     const years = d3.range(firstYr, lastYr);
 
     const sequentialTonnes = [];
