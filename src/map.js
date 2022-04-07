@@ -1,9 +1,9 @@
 import { iceCapArea } from "./data";
 
-export const iceMap2015 = require("../ice_ext_201509.json");
-export const iceMap2003 = require("../ice_ext_200309.json");
-export const iceMap1990 = require("../ice_ext_199009.json");
-export const iceMap1980 = require("../ice_ext_198009.json");
+export const iceMap2015 = require("../data/ice_ext_201509.json");
+export const iceMap2003 = require("../data/ice_ext_200309.json");
+export const iceMap1990 = require("../data/ice_ext_199009.json");
+export const iceMap1980 = require("../data/ice_ext_198009.json");
 
 export const years = [
     [iceMap1980, 1980],
@@ -39,7 +39,6 @@ const renderRepeat = () => {
             clearInterval(clearID);
             return;
         }
-
         if (document.querySelector("#map-area").innerHTML.includes("1,")) i = 0;
 
         document.querySelector("#map-box").remove();

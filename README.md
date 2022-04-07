@@ -36,7 +36,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
 ## Implementation Timeline
 
-1. Friday - Find reliable data source
+1. Friday - Find reliable data sources
 2. Saturday - Data conversions/formatting, d3 research
 3. Sunday - arctic ice extent maps display
 4. Monday - finalize maps & arctic ice animation
