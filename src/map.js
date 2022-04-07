@@ -46,7 +46,7 @@ const renderRepeat = () => {
         document.querySelector("#map-box").remove();
         renderMap(maps[i]);
         i++;
-    }, 500);
+    }, 750);
 };
 
 const surfaceArea = (map) => {
