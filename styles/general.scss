@@ -32,6 +32,12 @@ h3#pad {
 
 canvas {
 	margin-right: 10px;
+	margin-left: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+	.workspace {
+		flex-direction: column;
+	}
+}
 
