@@ -4,11 +4,12 @@
 }
 
 button {
-  padding: 8px 10px;
+  padding: 12px 16px;
   margin-top: 5px;
   background-color: azure;
   border-radius: 20%;
   font-family: fantasy;
+  cursor: pointer;
 }
 
 button:hover {
@@ -20,4 +21,10 @@ button:hover {
 .hidden-button {
   background-color: #40E0D0;
   color: #00008B;
+}
+
+.disabled-button {
+  background-color: none;
+  opacity: 1;
+  pointer-events: none;
 }

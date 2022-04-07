@@ -48,48 +48,63 @@ export const initializeFog = () => {
 
     // ADD EVENT LISTENER
     let play = document.querySelector("#animate-emissions");
-    play.addEventListener("click", () => {
 
-        let differences = [];
-        let yrsArr = [];
+    if (play.innerHTML.includes("START")) {
+        play.addEventListener("click", () => {
+            initializeFog();
+            play.disabled = true;
+            play.classList.add('disabled-button');
+            let differences = [];
+            let yrsArr = [];
 
-        for (let j = 1; j < sequentialTonnes.length; j++) {
-            let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-            let nextYr;
-            if (j === sequentialTonnes.length - 1) nextYr = 2020;
-            nextYr = parseInt(years[j]);
-            yrsArr.push(nextYr);
-            differences.push(amtBubbles);
-        }
-
-        // Bubble Generator
-        function bubbleGenerator(diff, yr) {
-            document.querySelector("#emissions-year").innerHTML = yr;
-            for (let i = 0; i < diff; i++) {
-                let x = Math.random() * (width - 1);
-                let y = Math.random() * (height);
-
-                ctx.beginPath();
-                ctx.arc(x, y, radius, 0, 2 * Math.PI);
-                ctx.stroke();
-                ctx.fillStyle = "#BEBEBE";
-                ctx.fill();
+            for (let j = 1; j < sequentialTonnes.length; j++) {
+                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+                let nextYr;
+                if (j === sequentialTonnes.length - 1) nextYr = 2020;
+                nextYr = parseInt(years[j]);
+                yrsArr.push(nextYr);
+                differences.push(amtBubbles);
             }
-        }
 
-        // promise to be resolved (must resolve a setTimeout of X ms time - function as a pause)
-        const sleep = (ms) => {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        };
+            // Bubble Generator
+            function bubbleGenerator(diff, yr) {
+                document.querySelector("#emissions-year").innerHTML = yr;
+                for (let i = 0; i < diff; i++) {
+                    let x = Math.random() * (width - 1);
+                    let y = Math.random() * (height);
 
-        const beginLoop = async () => {
-            for(let num = 0; num < differences.length; num++) {
-                bubbleGenerator(differences[num], yrsArr[num]);
-                await sleep(75);
+                    ctx.beginPath();
+                    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                    ctx.stroke();
+                    ctx.fillStyle = "#BEBEBE";
+                    ctx.fill();
+                }
             }
-            document.querySelector("#emissions-year").innerHTML = yr;
-        };
 
-        beginLoop();
-    });
+            // promise to be resolved (must resolve a setTimeout of X ms time - function as a pause)
+            const sleep = (ms) => {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            };
+
+            const beginLoop = async () => {
+                for(let num = 0; num < differences.length; num++) {
+                    bubbleGenerator(differences[num], yrsArr[num]);
+                    await sleep(50);
+
+                    if (num === differences.length - 1)  {
+                        play.classList.remove("disabled-button");
+                        play.disabled = false;
+                    }
+                }
+                document.querySelector("#emissions-year").innerHTML = yr;
+            };
+
+            beginLoop();
+        });
+    } 
+    // if (play.innerHTML === "STOP") {
+    //     play.addEventListener("click", () => {
+    //         play.disabled = true;
+    //     })
+    // }
 };
