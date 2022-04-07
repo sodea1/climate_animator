@@ -1,5 +1,3 @@
-# Climate Animator
-
 <p align="center">
   <img src="./assets/website_logo.png">
 </p>
@@ -10,6 +8,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
 * [Technologies Used](#technologies-used)
 * [Wireframe](#wireframe)
+* [Functionality](#functionality)
 * [Implementation Timeline](#implementation-timeline)
 
 
@@ -23,9 +22,9 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
 ## Wireframe
 
-![alt text](./assets//wireframev2.png "wireframe") 
+![alt text](./assets//wireframev3.png "wireframe")
 
-## Functionality and MVP's
+## Functionality
 
 1. Displays geographic arctic ice cap extent across four time periods.
 
