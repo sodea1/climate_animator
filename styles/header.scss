@@ -30,10 +30,6 @@ h1 {
   width: 350px;
 }
 
-// .fa-solid {
-//   display: none;
-// }
-
 img#globe {
   width: 64px;
   height: 64px;
@@ -47,9 +43,9 @@ img#globe {
   object-fit: contain;
 }
 
-@media only screen and (max-width: 500px) {
-  #linkedin {
-    visibility: hidden;
+@media only screen and (max-width: 600px) {
+  .workspace {
+    flex-direction: column;
   }
 }
 
