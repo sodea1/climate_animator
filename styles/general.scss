@@ -8,6 +8,11 @@ header, body {
 	display: flex;
 }
 
+.geography {
+	width: 50%;
+	margin-left: 10px;
+}
+
 .subtitles {
 	display: flex;
 	justify-content: space-around;
@@ -21,15 +26,14 @@ h3#pad {
 	padding-left: 25px;
 }
 
-.geography {
-	width: 50%;
-	margin-left: 10px;
-}
 
 #map-area, #map-year {
 	padding-top: 5px;
 	text-align: center;
 }
 
+canvas {
+	margin-right: 10px;
+}
 
 
