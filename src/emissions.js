@@ -4,15 +4,15 @@ var canvasEl;
 var ctx;
 var width;
 var height;
-var radius = 2;
+var radius = 1;
 
 export const initializeFog = () => {
 
     // CREATE CANVAS
 
     canvasEl = document.getElementById("dots");
-    canvasEl.width = 800;
-    canvasEl.height = 600;
+    canvasEl.width = 700;
+    canvasEl.height = 480;
     ctx = canvasEl.getContext('2d');
 
     // DEFINE KEY VARIABLES
@@ -49,7 +49,7 @@ export const initializeFog = () => {
     // ADD EVENT LISTENER
     let play = document.querySelector("#animate-emissions");
 
-    if (play.innerHTML.includes("START")) {
+    if (play.innerHTML.includes("START")) {``
         play.addEventListener("click", () => {
             initializeFog();
             play.disabled = true;
