@@ -32,15 +32,12 @@ const renderRepeat = () => {
         iceMap2015
     ];
     
-    let i = 1;
-
+    let i = 0;
     let clearID = setInterval(() => {
         if (i === maps.length) {
             clearInterval(clearID);
             return;
         }
-        if (document.querySelector("#map-area").innerHTML.includes("1,")) i = 0;
-
         document.querySelector("#map-box").remove();
         renderMap(maps[i]);
         i++;
@@ -100,7 +97,7 @@ export function renderMap(map) {
     let width = 850;
     let height = 500;
     
-    let svg = d3.select("div.map-here")
+    let svg = d3.select(".map-here")
         .append("svg")
         .attr("viewBox", "-85 -50" + " " + width + " " + height)
         .attr("id", "map-box");

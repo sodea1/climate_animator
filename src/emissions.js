@@ -49,7 +49,7 @@ export const initializeFog = () => {
     // ADD EVENT LISTENER
     let play = document.querySelector("#animate-emissions");
 
-    if (play.innerHTML.includes("START")) {``
+    if (play.innerHTML.includes("START")) {
         play.addEventListener("click", () => {
             initializeFog();
             play.disabled = true;
@@ -80,7 +80,6 @@ export const initializeFog = () => {
                     ctx.fill();
                 }
             }
-
             // promise to be resolved (must resolve a setTimeout of X ms time - function as a pause)
             const sleep = (ms) => {
                 return new Promise(resolve => setTimeout(resolve, ms));
