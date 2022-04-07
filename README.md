@@ -1,6 +1,6 @@
-# CLIMATE CHANGE VISUALIZATION JAVASCRIPT
+# Climate Animator
 
-Climate change poses an increasing threat to the health of our planet. The purpose of this project will be to create a readily digestible visual for climate change impacts that are inherently difficult to grasp due to their sheer scale. This application will present changes in sea level, sea ice area, temperature, greenhouse gas emissions, etc., over time using Node.js and d3.js visualizations. 
+Climate Animator displays historical climate change related data in visually arresting ways to emphasize the scale of impact to planet Earth. Users can use toggle buttons to view changes in arctic sea ice extent and greenhouse gas emissions over time.
 
 ## Functionality and MVP's
 
