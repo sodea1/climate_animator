@@ -8,7 +8,9 @@ Climate Animator visualizes historical climate change data to emphasize the scal
 
 Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
-(#technologies-used)
+[Go to](#technologies-used)
+[Go to](#wireframe)
+[Go to](#implementation-timeline)
 
 
 ## Technologies Used:
