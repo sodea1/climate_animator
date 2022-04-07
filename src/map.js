@@ -124,5 +124,5 @@ export function renderMap(map) {
         .text(area + " " + "sq. miles (thousands)");
      
     d3.select("#map-year")
-        .text(year);
+        .text("September" + " - " + year);
 }
