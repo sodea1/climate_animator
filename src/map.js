@@ -22,7 +22,6 @@ export function animate() {
         
         renderRepeat();
     });
-    
 }
 
 const renderRepeat = () => {

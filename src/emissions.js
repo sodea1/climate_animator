@@ -102,9 +102,4 @@ export const initializeFog = () => {
             beginLoop();
         });
     } 
-    // if (play.innerHTML === "STOP") {
-    //     play.addEventListener("click", () => {
-    //         play.disabled = true;
-    //     })
-    // }
 };
