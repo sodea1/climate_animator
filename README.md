@@ -20,14 +20,15 @@ In addition this project will include:
 
 ## Wireframe:
 
-![alt text](/wireframe.png "wireframe")
-
-https://user-images.githubusercontent.com/40174573/161183335-2b91386d-6f29-4e66-88cc-abbca583f4ba.png ## 
+![alt text](/wireframev2.png "wireframe") 
 
 ## Technologies Used:
 
 1. Node.js
 2. D3.js
+3. Canvas
+4. HTML5
+5. CSS
 
 ## Implementation Timeline
 
