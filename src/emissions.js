@@ -5,37 +5,25 @@ var ctx;
 var width;
 var height;
 var radius = 1;
+var ton = tonnes();
+var firstYr = ton[0].year;
+var lastYr = parseInt(ton[ton.length - 1].year) + 1;
 
-export const initializeFog = () => {
-
-    // CREATE CANVAS
-
+export const createCanvas = () => {
     canvasEl = document.getElementById("dots");
     canvasEl.width = 700;
     canvasEl.height = 480;
     ctx = canvasEl.getContext('2d');
 
-    // DEFINE KEY VARIABLES
-
-    const ton = tonnes(); // array of hashes
-        let firstYr = ton[0].year;
-        let lastYr = parseInt(ton[ton.length - 1].year) + 1;
-    const years = d3.range(firstYr, lastYr);
-
-    const sequentialTonnes = [];
-        ton.forEach((hash) => {
-            sequentialTonnes.push(hash["tonnes"] / 1000000);
-        });
-
     width = canvasEl.width;
     height = canvasEl.height;
-    
+
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
     const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
 
-    for(let i = 0; i < startTonnes; i++) {
+    for (let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 1);
-        let y = Math.random() * (height); 
+        let y = Math.random() * (height);
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
@@ -43,68 +31,95 @@ export const initializeFog = () => {
         ctx.fillStyle = "#BEBEBE";
         ctx.fill();
     }
+}
 
-    document.querySelector("#emissions-year").innerHTML = firstYr;
+const generateTonnesSeq = () => {
+    const sequentialTonnes = [];
+    ton.forEach((hash) => {
+        sequentialTonnes.push(hash["tonnes"] / 1000000);
+    });
 
-    // ADD EVENT LISTENER
-    let play = document.querySelector("#animate-emissions");
+    return sequentialTonnes;
+}
+ 
+// generates for single year difference
+const generateBubbles = (diff, yr) => {
+    document.querySelector("#emissions-year").innerHTML = yr;
+    for (let i = 0; i < diff; i++) {
+        let x = Math.random() * (width - 1);
+        let y = Math.random() * (height);
 
-    if (play.innerHTML.includes("START")) {``
-        play.addEventListener("click", () => {
-            initializeFog();
-            play.disabled = true;
-            play.classList.add('disabled-button');
-            let differences = [];
-            let yrsArr = [];
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "#BEBEBE";
+        ctx.fill();
+    }
+}
 
-            for (let j = 1; j < sequentialTonnes.length; j++) {
-                let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-                let nextYr;
-                if (j === sequentialTonnes.length - 1) nextYr = 2020;
-                nextYr = parseInt(years[j]);
-                yrsArr.push(nextYr);
-                differences.push(amtBubbles);
-            }
+// adds event listener conditional for start/pause
+export const renderButton = () => {
+    document.getElementById("emissions-year").innerHTML = firstYr;
+    debugger
+    const play = document.getElementById("animate-emissions");
+    play.addEventListener("click", (e) => {
+        if (e.target.innerHTML === " START") {
+            let year = document.getElementById("emissions-year").innerHTML;
+            let startIdx = parseInt(year) - parseInt(firstYr);
+            debugger
+            beginLoop(startIdx);
+            play.innerHTML = " PAUSE";
+        } else if (e.target.innerHTML === " PAUSE") {
+            debugger
+            play.innerHTML = " START";
+        }
+    })
+}
 
-            // Bubble Generator
-            function bubbleGenerator(diff, yr) {
-                document.querySelector("#emissions-year").innerHTML = yr;
-                for (let i = 0; i < diff; i++) {
-                    let x = Math.random() * (width - 1);
-                    let y = Math.random() * (height);
+// async function iterating through each amt difference yr to yr
+const beginLoop = async (startIdx) => {
+    debugger
+    const sequentialTonnes = generateTonnesSeq();
+    const years = d3.range(firstYr, lastYr);
+    let differences = [];
+    let yrsArr = [];
+    
+    for (let j = 1; j < sequentialTonnes.length; j++) {
+        let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
+        let nextYr;
+        if (j === sequentialTonnes.length - 1) nextYr = 2020;
+        nextYr = parseInt(years[j]);
+        yrsArr.push(nextYr);
+        differences.push(amtBubbles);
+    }
+    debugger
+    for (let num = startIdx; num < differences.length; num++) {
+        generateBubbles(differences[num], yrsArr[num]);
+        await sleep(50, yrsArr[num]);
 
-                    ctx.beginPath();
-                    ctx.arc(x, y, radius, 0, 2 * Math.PI);
-                    ctx.stroke();
-                    ctx.fillStyle = "#BEBEBE";
-                    ctx.fill();
-                }
-            }
-
-            // promise to be resolved (must resolve a setTimeout of X ms time - function as a pause)
-            const sleep = (ms) => {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            };
-
-            const beginLoop = async () => {
-                for(let num = 0; num < differences.length; num++) {
-                    bubbleGenerator(differences[num], yrsArr[num]);
-                    await sleep(50);
-
-                    if (num === differences.length - 1)  {
-                        play.classList.remove("disabled-button");
-                        play.disabled = false;
-                    }
-                }
-                document.querySelector("#emissions-year").innerHTML = yr;
-            };
-
-            beginLoop();
-        });
-    } 
-    // if (play.innerHTML === "STOP") {
-    //     play.addEventListener("click", () => {
-    //         play.disabled = true;
-    //     })
-    // }
+        if (num === differences.length - 1) {
+            createCanvas();
+            renderButton();
+        }
+    }
+    // document.querySelector("#emissions-year").innerHTML = yr;
 };
+
+const sleep = (ms, yr) => {
+    let play = document.getElementById("animate-emissions");
+
+    if (play.innerHTML === " PAUSE" || yr === parseInt(firstYr) + 1) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    } else {
+        return new Promise(resolve => setTimeout(resolve, ms * 100))
+    }
+};
+
+// export const initializeFog = () => {
+//     createCanvas();
+
+//     document.querySelector("#emissions-year").innerHTML = firstYr;
+//     // ADD EVENT LISTENER
+//     let playButton = document.querySelector("#animate-emissions");
+//     const years = d3.range(firstYr, lastYr);
+// };
