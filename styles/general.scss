@@ -1,7 +1,6 @@
 header, body {
 	font-family: fantasy;
 	background-color: cornsilk;
-	min-height: 100%;
 }
 
 .workspace {
@@ -13,27 +12,32 @@ header, body {
 	margin-left: 10px;
 }
 
-.subtitles {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+.sub-title {
+	text-align: center;
 	font-size: 24px;
 	color: #000065;
-	font-style: italic;
+	margin-top: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 h3#pad {
 	padding-left: 25px;
 }
 
-
-#map-area, #map-year {
+#map-area, #map-year, #pad {
 	padding-top: 5px;
 	text-align: center;
 }
 
 canvas {
 	margin-right: 10px;
+	margin-left: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+	.workspace {
+		flex-direction: column;
+	}
+}
 

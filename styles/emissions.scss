@@ -2,10 +2,15 @@
   width: 50%;
 }
 
+.emissions-section {
+  display: flex;
+}
+
 .emissions-description {
   text-align: center;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-right: 10px;
 }
 
 .emissions-display {

@@ -1,9 +1,9 @@
 import { iceCapArea } from "./data";
 
-export const iceMap2015 = require("../ice_ext_201509.json");
-export const iceMap2003 = require("../ice_ext_200309.json");
-export const iceMap1990 = require("../ice_ext_199009.json");
-export const iceMap1980 = require("../ice_ext_198009.json");
+export const iceMap2015 = require("../data/ice_ext_201509.json");
+export const iceMap2003 = require("../data/ice_ext_200309.json");
+export const iceMap1990 = require("../data/ice_ext_199009.json");
+export const iceMap1980 = require("../data/ice_ext_198009.json");
 
 export const years = [
     [iceMap1980, 1980],
@@ -22,7 +22,6 @@ export function animate() {
         
         renderRepeat();
     });
-    
 }
 
 const renderRepeat = () => {
@@ -33,16 +32,12 @@ const renderRepeat = () => {
         iceMap2015
     ];
     
-    let i = 1;
-
+    let i = 0;
     let clearID = setInterval(() => {
         if (i === maps.length) {
             clearInterval(clearID);
             return;
         }
-
-        if (document.querySelector("#map-area").innerHTML.includes("1,")) i = 0;
-
         document.querySelector("#map-box").remove();
         renderMap(maps[i]);
         i++;
@@ -102,7 +97,7 @@ export function renderMap(map) {
     let width = 850;
     let height = 500;
     
-    let svg = d3.select("div.map-here")
+    let svg = d3.select(".map-here")
         .append("svg")
         .attr("viewBox", "-85 -50" + " " + width + " " + height)
         .attr("id", "map-box");
@@ -129,5 +124,5 @@ export function renderMap(map) {
         .text(area + " " + "sq. miles (thousands)");
      
     d3.select("#map-year")
-        .text(year);
+        .text("September" + " - " + year);
 }

@@ -102,7 +102,6 @@ const beginLoop = async (startIdx) => {
             renderButton();
         }
     }
-    // document.querySelector("#emissions-year").innerHTML = yr;
 };
 
 const sleep = (ms, yr) => {

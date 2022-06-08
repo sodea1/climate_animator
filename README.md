@@ -1,40 +1,75 @@
-# CLIMATE CHANGE VISUALIZATION JAVASCRIPT
+<p align="center">
+  <img src="./assets/website_logo.png">
+</p>
 
-Climate change poses an increasing threat to the health of our planet. The purpose of this project will be to create a readily digestible visual for climate change impacts that are inherently difficult to grasp due to their sheer scale. This application will present changes in sea level, sea ice area, temperature, greenhouse gas emissions, etc., over time using Node.js and d3.js visualizations. 
+Climate Animator visualizes historical climate change data to emphasize the scale of climate impact to planet Earth. Users can use toggle buttons to view changes in arctic sea ice extent and greenhouse gas emissions over time.
 
-## Functionality and MVP's
+Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
-1. Display the polar ice cap from bird's eye view of the globe or positioned next to the United States. Visuals will be drawn to scale, using square mileage provided by API.
+* [Technologies Used](#technologies-used)
+* [Wireframe](#wireframe)
+* [Functionality](#functionality)
+* [Implementation Timeline](#implementation-timeline)
 
-2. Play and Pause buttons will start/stop animation of changes to surface area of the polar ice cap over full timeline provided by API. Animations will render new border positioning in response to fluctuations in polar ice cap area and year. 
-
-3. Animated line chart representing greenhouse emissions (and potentially other metrics like temperature, sea level, etc.) will sync with play button. During Play, line(s) will proceed in the positive x(emissions) and y (time) directions according to data plotted over time.
-
-4. Scroll bar will display the timeline above features described above. User can toggle button back and forth along the line to skip to a specific year. 
-
-In addition this project will include:
-
-1. README instructions for users describing functionality, information visualized, technologies used, wireframe, and implementation timeline.
-
-2. Potential future features visualizing sea level change in more depth.
-
-## Wireframe:
-
-![alt text](/wireframe.png "wireframe")
-
-https://user-images.githubusercontent.com/40174573/161183335-2b91386d-6f29-4e66-88cc-abbca583f4ba.png ## 
 
 ## Technologies Used:
 
 1. Node.js
 2. D3.js
+3. Canvas
+4. HTML5
+5. CSS
+
+## Wireframe
+
+![alt text](./assets//wireframev3.png "wireframe")
+
+## Functionality
+
+1. Displays geographic arctic ice cap extent across four time periods.
+
+2. User can toggle to view arctic ice extent by year.
+
+3. User can 'Start' animation displaying each map chronologically.
+
+4. User can 'Start' animation of greenhouse gas emissions over time.
+
+### Arctic Ice Animation
+
+![alt text](./assets/arctic_ice_extent.gif)
+
+### Greenhouse Gas Emissions Animation
+
+![alt text](./assets/emissions_bubbles.gif)
 
 ## Implementation Timeline
 
-1. Friday - setup connection to external API
-2. Saturday - Organize and format data
-3. Sunday - begin creation of polar ice cap & globe
-4. Monday - complete polar ice cap vis & begin line graph
-5. Tuesday - layer in polar ice cap animation synced with play but 
-6. Wednesday - finalize animations
+1. Friday - Find reliable data sources
+2. Saturday - Data conversions/formatting, d3 research
+3. Sunday - arctic ice extent maps display
+4. Monday - finalize maps & arctic ice animation
+5. Tuesday - emissions animation
+6. Wednesday - style, format & refactor
 
+### Code for Map Animation
+<pre><code>
+  const renderRepeat = () => {
+      const maps = [
+          iceMap1980,
+          iceMap1990,
+          iceMap2003,
+          iceMap2015
+      ];
+      
+      let i = 0;
+      let clearID = setInterval(() => {
+          if (i === maps.length) {
+              clearInterval(clearID);
+              return;
+          }
+          document.querySelector("#map-box").remove();
+          renderMap(maps[i]);
+          i++;
+      }, 750);
+  };
+</code></pre>
