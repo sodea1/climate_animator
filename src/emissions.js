@@ -26,7 +26,7 @@ export const createCanvas = () => {
 
     for (let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 1);
-        let y = Math.random() * (height);
+        let y = height - 2;
 
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
@@ -44,14 +44,25 @@ const generateTonnesSeq = () => {
 
     return sequentialTonnes;
 }
- 
-// generates for single year difference
+
 const generateBubbles = (diff, yr) => {
-    document.querySelector("#emissions-year").innerHTML = yr;
+    document.getElementById("emissions-year").innerHTML = yr;
+
+    const maxTonnes = parseInt(ton[270].tonnes);
+    const minTonnes = parseInt(ton[yr - firstYr].tonnes);
+    const newHeight = (minTonnes / maxTonnes);  // percentage of container filled based on year
+    debugger
     for (let i = 0; i < diff; i++) {
         let x = Math.random() * (width - 1);
-        let y = Math.random() * (height);
-
+        let y = height - (Math.random() * (height * newHeight));
+        if (y >= 479) {
+            y -= 1;
+        } else if (y <= 1) {
+            y += 1;
+        }
+        debugger
+        // 480 - (480 * .02)
+        
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.stroke();
@@ -103,7 +114,7 @@ const beginLoop = async (startIdx) => {
 
     for (let num = startIdx; num < differences.length; num++) {
         generateBubbles(differences[num], yrsArr[num]);
-        await sleep(30, yrsArr[num]);
+        await sleep(50, yrsArr[num]);
 
         if (num === differences.length - 1) {
             createCanvas();
