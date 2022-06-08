@@ -11,6 +11,8 @@ var lastYr = parseInt(ton[ton.length - 1].year) + 1;
 
 export const createCanvas = () => {
     document.getElementById("animate-emissions").innerHTML = " START";
+    document.getElementById("emissions-year").innerHTML = firstYr;
+
     canvasEl = document.getElementById("dots");
     canvasEl.width = 700;
     canvasEl.height = 480;
@@ -62,9 +64,8 @@ const generateBubbles = (diff, yr) => {
 export const renderButton = () => {
     document.getElementById("emissions-year").innerHTML = firstYr;
     let play = document.getElementById("animate-emissions");
-    debugger
+
     play.addEventListener("click", (e) => {
-        debugger
         if (e.target.innerHTML === " START") {
             let year = document.getElementById("emissions-year").innerHTML;
             let startIdx = parseInt(year) - parseInt(firstYr);
@@ -94,11 +95,10 @@ const beginLoop = async (startIdx) => {
 
     for (let num = startIdx; num < differences.length; num++) {
         generateBubbles(differences[num], yrsArr[num]);
-        await sleep(10, yrsArr[num]);
+        await sleep(30, yrsArr[num]);
 
         if (num === differences.length - 1) {
             createCanvas();
-            reset();
         }
     }
 };
@@ -113,17 +113,3 @@ const sleep = (ms, yr) => {
         return new Promise(resolve => setTimeout(resolve, ms * 10000000))
     }
 };
-
-const reset = () => {
-    document.getElementById("emissions-year").innerHTML = firstYr;
-    let play = document.getElementById("animate-emissions");
-
-    if (play.innerHTML === " START") {
-        let year = document.getElementById("emissions-year").innerHTML;
-        let startIdx = parseInt(year) - parseInt(firstYr);
-        play.innerHTML = " PAUSE";
-        beginLoop(startIdx);
-    } else if (play.innerHTML === " PAUSE") {
-        play.innerHTML = " START";
-    }
-}
