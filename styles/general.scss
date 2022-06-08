@@ -1,6 +1,7 @@
 header, body {
 	font-family: fantasy;
 	background-color: cornsilk;
+	position: relative;
 }
 
 .workspace {
@@ -39,5 +40,9 @@ canvas {
 	.workspace {
 		flex-direction: column;
 	}
+}
+
+.hide {
+	display: none;
 }
 

@@ -15,6 +15,33 @@
 </head>
 
 <body>
+  <div class="modal">
+    <div class="instructions-container">
+      <h1>How to Use:</h1>
+      <div class="instructions-sections">
+        <div class="arctic">
+          <h2>Arctic Sea Ice Visualization:</h2>
+          <ul class="instruction-list">
+            <li>Press 'START' to display a map of arctic sea ice extent in the given time period. Arctic sea ice extent is measured in
+            thousands of square miles.</li>
+            <li>Click a year to see the arctic sea ice extent map for that selected year.</li>
+          </ul>
+        </div>
+        <div class="gas">
+          <h2>Greenhouse Gas Emissions:</h2>
+          <ol class="instruction-list">
+            <li type="1">Press 'PLAY' to begin animation of greenhouse gas emissions growth over time.</li>
+            <li type="1">Press 'PAUSE' to stop animation at any given year.</li>
+            <li type="1">Press 'PLAY' to resume the animation.</li>
+            <br />
+            <li>Each circle represents 1,000,000 tonnes of greenhouse gas emissions.</li>
+          </ol>
+        </div>
+      </div>
+      <button class="continue">Continue</button>
+    </div>
+  </div>
+
   <header>
     <nav class="nav-bar">
       <div class="head-container">
@@ -31,7 +58,7 @@
           <img src="./assets/GitHub-Mark-64px.png" id="github">
         </a>
 
-        <a href="https://climate.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2C+created_at+desc&search=&category=19%2C98">LEARN MORE</a>
+        <a class="instructions-link">Instructions</a>
       
       </div>
     </nav>
@@ -61,7 +88,8 @@
       <h3 class="sub-title">Greenhouse Gas Emissions</h3>
       <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions. Press 'Start' to view emissions over time.</p>
       <div class="emissions-display">
-        <button id="animate-emissions"> START</button>
+        <button id="animate-emissions">PLAY</button>
+        <a class="reset-link">Reset</a>
         <p id="emissions-year"></p>
       </div>
 

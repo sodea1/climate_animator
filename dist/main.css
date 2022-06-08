@@ -139,6 +139,7 @@ table {
 header, body {
   font-family: fantasy;
   background-color: cornsilk;
+  position: relative;
 }
 
 .workspace {
@@ -178,6 +179,10 @@ canvas {
     flex-direction: column;
   }
 }
+.hide {
+  display: none;
+}
+
 header {
   background-color: white;
   border-bottom: 2px solid #000065;
@@ -223,6 +228,16 @@ img#globe {
   object-fit: contain;
 }
 
+.instructions-link {
+  background: none;
+  border: none;
+  font-size: 22px;
+}
+.instructions-link:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 .buttons {
   display: flex;
   justify-content: space-evenly;
@@ -240,7 +255,7 @@ button {
 button:hover {
   background-color: #40E0D0;
   color: #00008B;
-  transition: all 0.5s;
+  transition: all 0.1s;
 }
 
 .hidden-button {
@@ -284,6 +299,88 @@ button:hover {
   margin-bottom: 10px;
 }
 
+.reset-link {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 10px;
+}
+.reset-link:hover {
+  color: #40E0D0;
+  cursor: pointer;
+}
+
 canvas {
   margin-right: 10%;
+}
+
+.modal {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 20;
+  transition: 0.2s;
+}
+
+.modal-inactive {
+  display: none;
+}
+
+.instructions-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  min-width: 800px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 20px solid darkgreen;
+  background-color: #fff;
+  z-index: 10;
+}
+.instructions-container button {
+  width: 160px;
+}
+
+.instructions-sections {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.arctic, .gas {
+  margin: 12px 16px;
+  line-height: 1.5;
+  width: 50%;
+}
+.arctic h2, .gas h2 {
+  text-align: center;
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+ul > li {
+  display: list-item;
+  list-style-type: disc;
+  margin: 0 8px;
+}
+
+.instruction-list {
+  margin-top: 10px;
+}
+
+.continue {
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+.continue:hover {
+  background-color: #000065;
+  color: #fff;
+  transition: 0.1s;
 }

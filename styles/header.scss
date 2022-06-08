@@ -43,3 +43,13 @@ img#globe {
   object-fit: contain;
 }
 
+.instructions-link {
+  background: none;
+  border: none;
+  font-size: 22px;
+
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}

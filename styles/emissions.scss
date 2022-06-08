@@ -28,6 +28,17 @@
   margin-bottom: 10px;
 }
 
+.reset-link {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 10px;
+
+  &:hover {
+    color: #40E0D0;
+    cursor: pointer;
+  }
+}
+
 canvas {
   margin-right: 10%;
 }

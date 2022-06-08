@@ -10,7 +10,7 @@ var firstYr = ton[0].year;
 var lastYr = parseInt(ton[ton.length - 1].year) + 1;
 
 export const createCanvas = () => {
-    document.getElementById("animate-emissions").innerHTML = " START";
+    document.getElementById("animate-emissions").innerHTML = "PLAY";
     document.getElementById("emissions-year").innerHTML = firstYr;
 
     canvasEl = document.getElementById("dots");
@@ -64,16 +64,24 @@ const generateBubbles = (diff, yr) => {
 export const renderButton = () => {
     document.getElementById("emissions-year").innerHTML = firstYr;
     let play = document.getElementById("animate-emissions");
+    let reset = document.getElementsByClassName("reset-link");
 
     play.addEventListener("click", (e) => {
-        if (e.target.innerHTML === " START") {
+        if (e.target.innerHTML === "PLAY") {
             let year = document.getElementById("emissions-year").innerHTML;
             let startIdx = parseInt(year) - parseInt(firstYr);
-            play.innerHTML = " PAUSE";
+            play.innerHTML = "PAUSE";
+            document.getElementsByClassName("reset-link")[0].classList.add('hide')
             beginLoop(startIdx);
-        } else if (e.target.innerHTML === " PAUSE") {
-            play.innerHTML = " START";
+        } else if (e.target.innerHTML === "PAUSE") {
+            document.getElementsByClassName("reset-link")[0].classList.remove('hide')
+            play.innerHTML = "PLAY";
         }
+    });
+
+    reset[0].addEventListener("click", () => {
+        document.getElementById("emissions-year").innerHTML = firstYr;
+        createCanvas();
     })
 }
 
@@ -107,7 +115,7 @@ const sleep = (ms, yr) => {
     let play = document.getElementById("animate-emissions");
     let startYr = parseInt(firstYr) + 1;
 
-    if (play.innerHTML === " PAUSE" || yr === startYr) {
+    if (play.innerHTML === "PAUSE" || yr === startYr) {
         return new Promise(resolve => setTimeout(resolve, ms));
     } else { // MUST INCLUDE DOUBLE CONDITIONAL OTHERIWSE RESTART BUGS AFTER HITTING PAUSE ONCE
         return new Promise(resolve => setTimeout(resolve, ms * 10000000))
