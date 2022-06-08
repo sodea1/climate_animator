@@ -147,7 +147,7 @@ header, body {
 }
 
 .geography {
-  width: 50%;
+  width: 40%;
   margin-left: 10px;
 }
 
@@ -155,8 +155,7 @@ header, body {
   text-align: center;
   font-size: 24px;
   color: #000065;
-  margin-top: 15px;
-  padding-top: 5px;
+  margin-top: 6px;
   padding-bottom: 5px;
 }
 
@@ -167,11 +166,6 @@ h3#pad {
 #map-area, #map-year, #pad {
   padding-top: 5px;
   text-align: center;
-}
-
-canvas {
-  margin-right: 10px;
-  margin-left: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -269,12 +263,13 @@ button:hover {
   pointer-events: none;
 }
 
-#emissions-section {
+.emissions-section {
   width: 50%;
+  min-width: 700px;
 }
 
-.emissions-section {
-  display: flex;
+.emissions-header {
+  margin-left: 140px;
 }
 
 .emissions-description {
@@ -309,8 +304,36 @@ button:hover {
   cursor: pointer;
 }
 
-canvas {
-  margin-right: 10%;
+#dots {
+  margin: 0 8px;
+  border: 1px solid green;
+  border-top: none;
+}
+
+.greenhouse-container {
+  display: flex;
+}
+
+.canvas-wrapper {
+  position: relative;
+}
+
+.tonnes-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 480px;
+}
+.tonnes-scale .max-min-wrap {
+  text-align: right;
+}
+
+#line {
+  position: absolute;
+  width: 710px;
+  height: 0.5px;
+  outline: 1px solid red;
+  top: 98%;
 }
 
 .modal {

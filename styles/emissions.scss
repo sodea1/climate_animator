@@ -1,9 +1,10 @@
-#emissions-section {
+.emissions-section {
   width: 50%;
+  min-width: 700px;
 }
 
-.emissions-section {
-  display: flex;
+.emissions-header {
+  margin-left: 140px;
 }
 
 .emissions-description {
@@ -39,6 +40,35 @@
   }
 }
 
-canvas {
-  margin-right: 10%;
+#dots {
+  margin: 0 8px;
+  border: 1px solid green;
+  border-top: none;
+}
+
+.greenhouse-container {
+  display: flex;
+}
+
+.canvas-wrapper {
+  position: relative;
+}
+
+.tonnes-scale {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 480px;
+
+  .max-min-wrap {
+    text-align: right;
+  }  
+}
+
+#line {
+  position: absolute;
+  width: 710px;
+  height: 0.5px;
+  outline: 1px solid red;
+  top: 98%;
 }

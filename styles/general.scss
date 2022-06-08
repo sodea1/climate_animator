@@ -9,7 +9,7 @@ header, body {
 }
 
 .geography {
-	width: 50%;
+	width: 40%;
 	margin-left: 10px;
 }
 
@@ -17,8 +17,7 @@ header, body {
 	text-align: center;
 	font-size: 24px;
 	color: #000065;
-	margin-top: 15px;
-	padding-top: 5px;
+	margin-top: 6px;
 	padding-bottom: 5px;
 }
 
@@ -29,11 +28,6 @@ h3#pad {
 #map-area, #map-year, #pad {
 	padding-top: 5px;
 	text-align: center;
-}
-
-canvas {
-	margin-right: 10px;
-	margin-left: 10px;
 }
 
 @media only screen and (max-width: 600px) {

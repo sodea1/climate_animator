@@ -84,18 +84,40 @@
 
     </section>
 
-    <section id="emissions-section">
-      <h3 class="sub-title">Greenhouse Gas Emissions</h3>
-      <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions. Press 'Start' to view emissions over time.</p>
+    <section class="emissions-section">
+      <div class="emissions-header">
+        <h3 class="sub-title">Greenhouse Gas Emissions</h3>
+        <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions. Press 'Start' to view emissions over time.</p>
+      </div>
       <div class="emissions-display">
         <button id="animate-emissions">PLAY</button>
-        <a class="reset-link">Reset</a>
+        <a class="reset-link hide">Reset</a>
         <p id="emissions-year"></p>
+        <div>
+          <span>Slower</span>
+          <input class="speed" type="range" min="1" max="200">
+          <span>Faster</span>
+        </div>
       </div>
-
-      <canvas id="dots">
-        
-      </canvas>
+      <div class="greenhouse-container">
+        <div class="tonnes-scale">
+          <div class="max-min-wrap">
+            <span class="max-tonnes"></span>
+            <br />
+            <span>(tonnes)</span>
+          </div>
+          <div class="max-min-wrap">
+            <span class="min-tonnes"></span>
+            <br />
+            <span>(tonnes)</span>
+          </div>
+        </div>
+        <div class="canvas-wrapper">
+          <div id="line"></div>
+          <canvas id="dots">  
+          </canvas>
+        </div>
+      </div>
       
     </section>
   </div>
