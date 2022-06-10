@@ -4,7 +4,7 @@
 }
 
 .emissions-header {
-  margin-left: 140px;
+  // margin-left: 140px;
 }
 
 .emissions-description {
@@ -17,6 +17,7 @@
 .emissions-display {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 #emissions-year {
@@ -54,21 +55,38 @@
   position: relative;
 }
 
-.tonnes-scale {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 480px;
+.max-tonnes {
+  position: absolute;
+  left: -16%;
+}
 
-  .max-min-wrap {
-    text-align: right;
-  }  
+.max-tonnes-label {
+  position: absolute;
+  left: -10%;
+  top: 4%
+}
+
+.min-tonnes {
+  position: absolute;
+  top: 100%;
+  left: -11%;
+}
+
+.min-tonnes-label {
+  position: absolute;
+  top: 104%;
+  left: -11%;
 }
 
 #line {
   position: absolute;
-  width: 710px;
+  width: 680px;
   height: 0.5px;
   outline: 1px solid red;
   top: 98%;
+}
+
+#live-tonnes {
+  position: absolute;
+  left: -11%;
 }

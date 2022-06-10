@@ -89,6 +89,23 @@
         <h3 class="sub-title">Greenhouse Gas Emissions</h3>
         <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions. Press 'Start' to view emissions over time.</p>
       </div>
+
+      <div class="greenhouse-container">
+        <div class="canvas-wrapper">
+          <div id="line">
+            <span id="live-tonnes"></span>
+          </div>
+          <canvas id="dots">  
+          </canvas>
+
+          <span class="max-tonnes"></span>
+          <span class="max-tonnes-label">(tonnes)</span>
+
+          <!-- <span class="min-tonnes"></span>
+          <span class="min-tonnes-label">(tonnes)</span> -->
+        </div>
+      </div>
+      
       <div class="emissions-display">
         <button id="animate-emissions">PLAY</button>
         <a class="reset-link hide">Reset</a>
@@ -99,26 +116,7 @@
           <span>Faster</span>
         </div>
       </div>
-      <div class="greenhouse-container">
-        <div class="tonnes-scale">
-          <div class="max-min-wrap">
-            <span class="max-tonnes"></span>
-            <br />
-            <span>(tonnes)</span>
-          </div>
-          <div class="max-min-wrap">
-            <span class="min-tonnes"></span>
-            <br />
-            <span>(tonnes)</span>
-          </div>
-        </div>
-        <div class="canvas-wrapper">
-          <div id="line"></div>
-          <canvas id="dots">  
-          </canvas>
-        </div>
-      </div>
-      
+
     </section>
   </div>
 </body>

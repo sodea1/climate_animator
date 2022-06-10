@@ -30,11 +30,11 @@ const stringify = (num) => {
 export const createCanvas = () => {
     document.getElementById("animate-emissions").innerHTML = "PLAY";
     document.getElementById("emissions-year").innerHTML = firstYr;
-    document.getElementsByClassName("min-tonnes")[0].innerHTML = `${stringify(ton[0].tonnes)}`;
+    // document.getElementsByClassName("min-tonnes")[0].innerHTML = `${stringify(ton[0].tonnes)}`;
     document.getElementsByClassName("max-tonnes")[0].innerHTML = `${stringify(ton[270].tonnes)}`;
-
+    
     canvasEl = document.getElementById("dots");
-    canvasEl.width = 700;
+    canvasEl.width = 650;
     canvasEl.height = 480;
     ctx = canvasEl.getContext('2d');
 
@@ -42,7 +42,9 @@ export const createCanvas = () => {
     height = canvasEl.height;
 
     const line = document.getElementById("line");
-    line.style.top = `99%`;
+    line.style.top = '99%';
+    const liveTonnes = document.getElementById("live-tonnes");
+    liveTonnes.style.top = '99%';
 
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
     const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
@@ -73,7 +75,7 @@ const generateTonnesSeq = () => {
 
 const drawLine = (yr) => {
     const maxTonnes = parseInt(ton[270].tonnes);
-    debugger
+    
     const minTonnes = parseInt(ton[yr - firstYr].tonnes);
     const percentTonnes = (minTonnes / maxTonnes);  // percentage of container filled based on year
     
@@ -85,6 +87,11 @@ const drawLine = (yr) => {
     
     const line = document.getElementById("line");
     line.style.top = `${ceiling}%`;
+    const liveTonnes = document.getElementById("live-tonnes");
+    
+    liveTonnes.innerHTML = `${stringify(minTonnes)}`;
+    
+    liveTonnes.style.top = `${ceiling}%`;
 }
 
 const generateBubbles = (diff, yr) => {
@@ -151,10 +158,8 @@ const getSpeed = () => {
 
     let adjusted;
     if (value > max / 2) {
-        debugger
         adjusted = max / 2 - (value - max / 2)
     } else if (value < max / 2) {
-        debugger
         adjusted = max / 2 + (max / 2 - value);
     }
     return adjusted;
@@ -167,26 +172,27 @@ const beginLoop = async (startIdx) => {
     let differences = [];
     let yrsArr = [];
     let speed = getSpeed();
-    debugger
     
     for (let j = 1; j < sequentialTonnes.length; j++) {
         let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
         let nextYr;
-
-        if (j === sequentialTonnes.length - 1) nextYr = 2020;
-
         nextYr = parseInt(years[j - 1]);
+        
         yrsArr.push(nextYr);
+        if (nextYr === 2019) {
+            yrsArr.push(2020);
+        }
         differences.push(amtBubbles);
     }
-
+    
     for (let num = startIdx; num < differences.length; num++) {
         drawLine(yrsArr[num]);
         generateBubbles(differences[num], yrsArr[num]);
         await sleep(speed, yrsArr[num]);
 
         if (num === differences.length - 1) {
-            createCanvas();
+            document.getElementsByClassName("emissions-year").innerHTML = 2020;
+            document.getElementsByClassName("reset-link")[0].classList.remove('hide')
         }
     }
 };
