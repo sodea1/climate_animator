@@ -33,8 +33,10 @@ export const createCanvas = () => {
     document.getElementById("animate-emissions").innerHTML = "PLAY";
     document.getElementById("emissions-year").innerHTML = firstYr;
     // document.getElementsByClassName("min-tonnes")[0].innerHTML = `${stringify(ton[0].tonnes)}`;
-    document.getElementsByClassName("max-tonnes")[0].innerHTML = `${stringify(ton[270].tonnes)}`;
-    
+    // document.getElementsByClassName("max-tonnes")[0].innerHTML = `${stringify(ton[270].tonnes)}`;
+    const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
+    document.getElementsByClassName("max-tonnes")[0].innerHTML = totalTonnes;
+        
     canvasEl = document.getElementById("dots");
     canvasEl.width = 650;
     canvasEl.height = 480;
@@ -76,10 +78,14 @@ const generateTonnesSeq = () => {
     return sequentialTonnes;
 }
 
-const drawLine = (yr) => {
+const drawLine = (yr, differences) => {
     const maxTonnes = parseInt(ton[270].tonnes);
+    const minTonnes = parseInt(ton[yr - firstYr].tonnes); // TONNES AT SPECIFIC YEAR
     
-    const minTonnes = parseInt(ton[yr - firstYr].tonnes);
+    let cumArr = Object.values(differences).slice(0, (yr - firstYr));
+    let cumulativeTonnes = cumArr.reduce((acc, amt) => amt + acc, 0);
+    debugger
+    
     const percentTonnes = (minTonnes / maxTonnes);  // percentage of container filled based on year
     
     let ceiling = (1 - percentTonnes) * 100 - 1;
@@ -92,7 +98,8 @@ const drawLine = (yr) => {
     line.style.top = `${ceiling}%`;
     const liveTonnes = document.getElementById("live-tonnes");
     
-    liveTonnes.innerHTML = `${stringify(minTonnes)}`;
+    // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
+    liveTonnes.innerHTML = cumulativeTonnes;
     
     liveTonnes.style.top = `${ceiling}%`;
 }
@@ -189,7 +196,7 @@ const beginLoop = async (startIdx) => {
     }
     
     for (let num = startIdx; num < differences.length; num++) {
-        drawLine(yrsArr[num]);
+        drawLine(yrsArr[num], differences);
         generateBubbles(differences[num], yrsArr[num]);
         await sleep(speed, yrsArr[num]);
 
