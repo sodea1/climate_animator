@@ -274,17 +274,27 @@ button:hover {
 .emissions-display {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
+  margin: auto;
+  width: 50%;
+}
+.emissions-display * {
+  display: inline-block;
+  margin: 2px 6px;
+}
+.emissions-display .speed-range {
+  display: flex;
+  align-items: center;
 }
 
 #emissions-year {
-  font-size: 30px;
-  padding-left: 20px;
-  width: 25%;
+  position: absolute;
+  font-size: 22px;
+  right: -8%;
 }
 
 #animate-emissions {
-  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .reset-link {
@@ -343,6 +353,11 @@ button:hover {
 }
 
 #live-tonnes {
+  position: absolute;
+  left: -14%;
+}
+
+.y-axis-label {
   position: absolute;
   left: -14%;
 }

@@ -32,10 +32,9 @@ const stringify = (num) => {
 export const createCanvas = () => {
     document.getElementById("animate-emissions").innerHTML = "PLAY";
     document.getElementById("emissions-year").innerHTML = firstYr;
-    // document.getElementsByClassName("min-tonnes")[0].innerHTML = `${stringify(ton[0].tonnes)}`;
-    // document.getElementsByClassName("max-tonnes")[0].innerHTML = `${stringify(ton[270].tonnes)}`;
+
     const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
-    document.getElementsByClassName("max-tonnes")[0].innerHTML = totalTonnes;
+    // document.getElementsByClassName("max-tonnes")[0].innerHTML = totalTonnes;
         
     canvasEl = document.getElementById("dots");
     canvasEl.width = 650;
@@ -82,9 +81,8 @@ const drawLine = (yr, differences) => {
     const maxTonnes = parseInt(ton[270].tonnes);
     const minTonnes = parseInt(ton[yr - firstYr].tonnes); // TONNES AT SPECIFIC YEAR
     
-    let cumArr = Object.values(differences).slice(0, (yr - firstYr));
-    let cumulativeTonnes = cumArr.reduce((acc, amt) => amt + acc, 0);
-    debugger
+    let cumArr = ton.slice(0, (yr - firstYr));
+    let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
     
     const percentTonnes = (minTonnes / maxTonnes);  // percentage of container filled based on year
     
@@ -99,7 +97,7 @@ const drawLine = (yr, differences) => {
     const liveTonnes = document.getElementById("live-tonnes");
     
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
-    liveTonnes.innerHTML = cumulativeTonnes;
+    liveTonnes.innerHTML = parseInt(cumulativeTonnes);
     
     liveTonnes.style.top = `${ceiling}%`;
 }

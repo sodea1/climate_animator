@@ -93,21 +93,24 @@
       <div class="greenhouse-container">
         <div class="canvas-wrapper">
           <div id="line">
-            <span id="live-tonnes"></span>
+            <span id="live-tonnes"><span>tonnes</span></span>
+            <span id="emissions-year"></span>
           </div>
           <canvas id="dots">  
           </canvas>
 
-          <span class="max-tonnes"></span>
-          <span class="max-tonnes-label">(tonnes)</span>
+          <!-- <span class="max-tonnes"></span>
+          <span class="max-tonnes-label">(tonnes)</span> -->
         </div>
       </div>
       
       <div class="emissions-display">
+        <!-- <span class="y-axis-label">(tonnes)</span> -->
+        <!-- <img src="./assets/play.png" height="50px" width="50px" id="animate-emissions"> -->
         <button id="animate-emissions">PLAY</button>
         <a class="reset-link hide">Reset</a>
-        <p id="emissions-year"></p>
-        <div>
+        
+        <div class="speed-range">
           <span>Slower</span>
           <input class="speed" type="range" min="1" max="120">
           <span>Faster</span>
