@@ -33,7 +33,6 @@ export const createCanvas = () => {
     document.getElementById("animate-emissions").innerHTML = "PLAY";
     document.getElementById("emissions-year").innerHTML = firstYr;
 
-    const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
     // document.getElementsByClassName("max-tonnes")[0].innerHTML = totalTonnes;
         
     canvasEl = document.getElementById("dots");
@@ -83,10 +82,10 @@ const drawLine = (yr, differences) => {
     
     let cumArr = ton.slice(0, (yr - firstYr));
     let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
+    const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
+    const percentTonnes = (cumulativeTonnes / totalTonnes);  // percentage of container filled based on year
     
-    const percentTonnes = (minTonnes / maxTonnes);  // percentage of container filled based on year
-    
-    let ceiling = (1 - percentTonnes) * 100 - 1;
+    let ceiling = (1 - percentTonnes) * 100 - 2;
 
     if (ceiling < 0) {
         ceiling = 0;
@@ -97,7 +96,7 @@ const drawLine = (yr, differences) => {
     const liveTonnes = document.getElementById("live-tonnes");
     
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
-    liveTonnes.innerHTML = parseInt(cumulativeTonnes);
+    liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes));
     
     liveTonnes.style.top = `${ceiling}%`;
 }
@@ -105,10 +104,11 @@ const drawLine = (yr, differences) => {
 const generateBubbles = (diff, yr) => {
     document.getElementById("emissions-year").innerHTML = yr;
 
-    const maxTonnes = parseInt(ton[270].tonnes);
-    const minTonnes = parseInt(ton[yr - firstYr].tonnes);
-    const newHeight = (minTonnes / maxTonnes);  // percentage of container filled based on year
-    const pixelHeight = height * newHeight;
+    let cumArr = ton.slice(0, (yr - firstYr));
+    let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
+    const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
+    const percentTonnes = (cumulativeTonnes / totalTonnes); // percentage of container filled based on year
+    const pixelHeight = height * percentTonnes;
 
     for (let i = 0; i < diff; i++) {
         let x = Math.random() * (width);

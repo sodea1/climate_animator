@@ -272,14 +272,11 @@ button:hover {
 }
 
 .emissions-display {
-  display: flex;
-  align-items: center;
   position: relative;
   margin: auto;
   width: 50%;
 }
 .emissions-display * {
-  display: inline-block;
   margin: 2px 6px;
 }
 .emissions-display .speed-range {
@@ -328,7 +325,7 @@ button:hover {
 
 .max-tonnes-label {
   position: absolute;
-  left: -10%;
+  left: -12%;
   top: 4%;
 }
 
