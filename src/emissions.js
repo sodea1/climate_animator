@@ -14,14 +14,16 @@ const stringify = (num) => {
     let count = 0;
     let arr = num.toString().split("");
 
-    for (let i = arr.length - 1; i > -1; i--) {
-        str = arr[i] + str;
-        count += 1;
-
+    for (let i = arr.length - 1; i > -1; i--) { // 12,456
+        
         if (count === 3) {
             str = "," + str;
+            str = arr[i] + str;
             count = 0;
+        } else {
+            str = arr[i] + str;
         }
+        count += 1;
     }
 
     return str;
@@ -45,10 +47,11 @@ export const createCanvas = () => {
     line.style.top = '99%';
     const liveTonnes = document.getElementById("live-tonnes");
     liveTonnes.style.top = '99%';
-
+    
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
     const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
-
+    liveTonnes.innerHTML = stringify(startTonnes);
+    
     for (let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 2);
         if (x < 5) {
