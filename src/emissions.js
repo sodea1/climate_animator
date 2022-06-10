@@ -47,10 +47,10 @@ export const createCanvas = () => {
     line.style.top = '99%';
     const liveTonnes = document.getElementById("live-tonnes");
     liveTonnes.style.top = '99%';
+    liveTonnes.innerHTML = stringify(ton[0].tonnes);
     
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
     const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
-    liveTonnes.innerHTML = stringify(startTonnes);
     
     for (let i = 0; i < startTonnes; i++) {
         let x = Math.random() * (width - 2);
