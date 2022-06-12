@@ -338,8 +338,7 @@ button:hover {
 
 #line {
   position: absolute;
-  width: 659px;
-  height: 0.5px;
+  width: 100%;
   outline: 1px solid red;
   top: 98%;
 }
@@ -360,18 +359,18 @@ button:hover {
 #emissions-year-fixed {
   position: absolute;
   font-size: 22px;
-  right: 3px;
+  right: -1%;
   bottom: -3.5%;
 }
 
 #percent-total {
   position: absolute;
-  left: -4%;
+  left: -5%;
 }
 
 #percent-total-fixed {
   position: absolute;
-  left: -4%;
+  left: -5%;
   bottom: -2.5%;
 }
 
