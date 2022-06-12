@@ -176,7 +176,7 @@ h3#pad {
 header {
   background-color: white;
   border-bottom: 2px solid #000065;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .nav-bar {
@@ -266,8 +266,7 @@ button:hover {
 
 .emissions-description {
   text-align: left;
-  padding-top: 5px;
-  margin-bottom: 24px;
+  margin-bottom: 2px;
   margin-right: 16px;
 }
 
@@ -286,7 +285,7 @@ button:hover {
 }
 
 #animate-emissions {
-  font-size: 22px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -327,7 +326,7 @@ button:hover {
   position: absolute;
   color: #000065;
   left: 50%;
-  top: -18px;
+  top: -16px;
   transform: translate(-50%, 0);
 }
 
@@ -356,9 +355,7 @@ button:hover {
 }
 
 .dropdown {
-  position: absolute;
-  top: -5%;
-  right: 10%;
+  margin-bottom: 24px;
 }
 
 .errors {

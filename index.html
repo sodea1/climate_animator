@@ -87,6 +87,12 @@
       <div class="emissions-header">
         <h3 class="sub-title">Greenhouse Gas Emissions</h3>
         <p class="emissions-description">Each dot represents 1,000,000 tonnes of greenhouse gas emissions. Press 'Start' to view emissions over time.</p>
+        <form class="dropdown" type="submit">
+          <span>Enter a year between 1750 & 2020:</span>
+          <input type="text" class="input-year" value="" />
+          <input type="submit">
+          <span class="errors"></span>
+        </form>
       </div>
 
       <div class="greenhouse-container">
@@ -99,12 +105,7 @@
           <canvas id="dots">  
           </canvas>
         </div>  
-        <form class="dropdown" type="submit"> 
-          <span>Enter a year between 1750 & 2020:</span>
-          <input type="text" class="input-year" value="" />
-          <input type="submit">
-          <span class="errors"></span>
-        </form>
+        
         <span id="emissions-year-fixed" class="hide">1750</span>
         <span id="percent-total-fixed" class="hide">0%</span>
       </div>
