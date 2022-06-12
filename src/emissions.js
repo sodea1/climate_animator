@@ -218,6 +218,14 @@ export const renderButton = () => {
         const percentFixed = document.getElementById("percent-total-fixed");
         fixedYr.classList.add("hide");
         percentFixed.classList.add("hide");
+
+        const speedEles = document.getElementsByClassName("speed-toggle");
+        for (let i = 0; i < speedEles.length; i++) {
+            speedEles[i].classList.remove("hide");
+        }
+
+        const inputYear = document.getElementsByClassName("input-year");
+        inputYear[0].value = "";
     })
 }
 

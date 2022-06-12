@@ -355,13 +355,14 @@ button:hover {
 }
 
 .dropdown {
+  position: relative;
   margin-bottom: 24px;
 }
 
 .errors {
   position: absolute;
   top: 26px;
-  right: 10%;
+  right: 38%;
   font-size: 12px;
   color: red;
 }
