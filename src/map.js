@@ -94,8 +94,8 @@ export function renderMap(map) {
 
     removeColor(year);
 
-    let width = 850;
-    let height = 500;
+    let width = 1000;
+    let height = 700;
     
     let svg = d3.select(".map-here")
         .append("svg")
