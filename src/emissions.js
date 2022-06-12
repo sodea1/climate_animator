@@ -108,6 +108,26 @@ const drawLine = (yr, differences) => {
     percentTotal.innerHTML = `${Math.round(percentTonnes * 100)}%`;
 }
 
+const speedToggle = () => {
+    const speedEles = document.getElementsByClassName("speed-toggle");
+    const year = document.getElementById("emissions-year");
+    const playPause = document.getElementById("animate-emissions");
+
+    if (year.innerHTML === "1750" && playPause.innerHTML === "PLAY") {
+        for (let i = 0; i < speedEles.length; i++) {
+            speedEles[i].classList.add("hide");
+        }
+    } else if (playPause.innerHTML === "PLAY") {
+        for (let i = 0; i < speedEles.length; i++) {
+            speedEles[i].classList.add("hide");
+        }
+    } else if (playPause.innerHTML === "PAUSE") {
+        for (let i = 0; i < speedEles.length; i++) {
+            speedEles[i].classList.remove("hide");
+        }
+    }
+}
+
 const generateBubbles = (diff, yr) => {
     document.getElementById("emissions-year").innerHTML = yr;
 
@@ -147,13 +167,16 @@ export const renderButton = () => {
 
     play.addEventListener("click", (e) => {
         if (e.target.innerHTML === "PLAY") {
+            speedToggle();
             let year = document.getElementById("emissions-year").innerHTML;
             let startIdx = parseInt(year) - parseInt(firstYr);
             play.innerHTML = "PAUSE";
             document.getElementsByClassName("reset-link")[0].classList.add('hide')
             beginLoop(startIdx);
         } else if (e.target.innerHTML === "PAUSE") {
+            speedToggle();
             document.getElementsByClassName("reset-link")[0].classList.remove('hide')
+            
             play.innerHTML = "PLAY";
         }
     });
