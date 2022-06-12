@@ -46,8 +46,10 @@ export const createCanvas = () => {
     const line = document.getElementById("line");
     line.style.top = '99%';
     const liveTonnes = document.getElementById("live-tonnes");
-    liveTonnes.style.top = '99%';
-    liveTonnes.innerHTML = stringify(ton[0].tonnes);
+    const percentTotal = document.getElementById("percent-total");
+    // liveTonnes.style.top = '99%';
+    liveTonnes.innerHTML = stringify(ton[0].tonnes) + " tonnes";
+    percentTotal.innerHTML = "0%";
     
     // RENDER FIRST YEAR'S TONNES IN CIRCLES
     const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
@@ -94,11 +96,13 @@ const drawLine = (yr, differences) => {
     const line = document.getElementById("line");
     line.style.top = `${ceiling}%`;
     const liveTonnes = document.getElementById("live-tonnes");
+    const percentTotal = document.getElementById("percent-total");
     
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
-    liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes));
+    liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes)) + " tonnes";
+    percentTotal.innerHTML = `${Math.round(percentTonnes * 100)}%`;
     
-    liveTonnes.style.top = `${ceiling}%`;
+    // liveTonnes.style.top = `${ceiling}%`;
 }
 
 const generateBubbles = (diff, yr) => {

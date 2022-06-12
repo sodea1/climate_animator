@@ -290,6 +290,13 @@ button:hover {
   right: -8%;
 }
 
+#emissions-year-fixed {
+  position: absolute;
+  font-size: 22px;
+  right: 3px;
+  bottom: -3.5%;
+}
+
 #animate-emissions {
   cursor: pointer;
 }
@@ -312,6 +319,7 @@ button:hover {
 
 .greenhouse-container {
   display: flex;
+  position: relative;
 }
 
 .canvas-wrapper {
@@ -351,12 +359,14 @@ button:hover {
 
 #live-tonnes {
   position: absolute;
-  left: -14%;
+  left: 50%;
+  top: -16px;
+  transform: translate(-50%, 0);
 }
 
-.y-axis-label {
+#percent-total {
   position: absolute;
-  left: -14%;
+  left: -6%;
 }
 
 .modal {
