@@ -26,19 +26,6 @@
   }
 }
 
-#emissions-year {
-  position: absolute;
-  font-size: 22px;
-  right: -8%;
-}
-
-#emissions-year-fixed {
-  position: absolute;
-  font-size: 22px;
-  right: 3px;
-  bottom: -3.5%;
-}
-
 #animate-emissions {
   cursor: pointer;
 }
@@ -103,11 +90,30 @@
 #live-tonnes {
   position: absolute;
   left: 50%;
-  top: -16px;
+  top: -18px;
   transform: translate(-50%, 0);
+}
+
+#emissions-year {
+  position: absolute;
+  font-size: 22px;
+  right: -8%;
+}
+
+#emissions-year-fixed {
+  position: absolute;
+  font-size: 22px;
+  right: 3px;
+  bottom: -3.5%;
 }
 
 #percent-total {
   position: absolute;
-  left: -6%;
+  left: -4%;
+}
+
+#percent-total-fixed {
+  position: absolute;
+  left: -4%;
+  bottom: -2.5%;
 }

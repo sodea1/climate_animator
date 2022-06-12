@@ -284,19 +284,6 @@ button:hover {
   align-items: center;
 }
 
-#emissions-year {
-  position: absolute;
-  font-size: 22px;
-  right: -8%;
-}
-
-#emissions-year-fixed {
-  position: absolute;
-  font-size: 22px;
-  right: 3px;
-  bottom: -3.5%;
-}
-
 #animate-emissions {
   cursor: pointer;
 }
@@ -360,13 +347,32 @@ button:hover {
 #live-tonnes {
   position: absolute;
   left: 50%;
-  top: -16px;
+  top: -18px;
   transform: translate(-50%, 0);
+}
+
+#emissions-year {
+  position: absolute;
+  font-size: 22px;
+  right: -8%;
+}
+
+#emissions-year-fixed {
+  position: absolute;
+  font-size: 22px;
+  right: 3px;
+  bottom: -3.5%;
 }
 
 #percent-total {
   position: absolute;
-  left: -6%;
+  left: -4%;
+}
+
+#percent-total-fixed {
+  position: absolute;
+  left: -4%;
+  bottom: -2.5%;
 }
 
 .modal {
@@ -383,10 +389,6 @@ button:hover {
   transition: 0.2s;
 }
 
-.modal-inactive {
-  display: none;
-}
-
 .instructions-container {
   display: flex;
   flex-direction: column;
@@ -397,7 +399,7 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 20px solid darkgreen;
+  border: 20px solid #000065;
   background-color: #fff;
   z-index: 10;
 }

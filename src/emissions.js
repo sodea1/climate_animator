@@ -79,8 +79,9 @@ const generateTonnesSeq = () => {
 }
 
 const drawLine = (yr, differences) => {
-    const maxTonnes = parseInt(ton[270].tonnes);
-    const minTonnes = parseInt(ton[yr - firstYr].tonnes); // TONNES AT SPECIFIC YEAR
+    const liveTonnes = document.getElementById("live-tonnes");
+    const percentTotal = document.getElementById("percent-total");
+    const line = document.getElementById("line");
     
     let cumArr = ton.slice(0, (yr - firstYr));
     let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
@@ -89,20 +90,22 @@ const drawLine = (yr, differences) => {
     
     let ceiling = (1 - percentTonnes) * 100 - 2;
 
+    
     if (ceiling < 0) {
         ceiling = 0;
+    } else if (ceiling < 92) {
+        // debugger
+        const fixedYr = document.getElementById("emissions-year-fixed");
+        const percentFixed = document.getElementById("percent-total-fixed");
+        fixedYr.classList.remove("hide");
+        percentFixed.classList.remove("hide");
+
     }
     
-    const line = document.getElementById("line");
     line.style.top = `${ceiling}%`;
-    const liveTonnes = document.getElementById("live-tonnes");
-    const percentTotal = document.getElementById("percent-total");
-    
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
     liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes)) + " tonnes";
     percentTotal.innerHTML = `${Math.round(percentTonnes * 100)}%`;
-    
-    // liveTonnes.style.top = `${ceiling}%`;
 }
 
 const generateBubbles = (diff, yr) => {
@@ -159,6 +162,10 @@ export const renderButton = () => {
         document.getElementById("emissions-year").innerHTML = firstYr;
         createCanvas();
         document.getElementsByClassName("reset-link")[0].classList.add("hide");
+        const fixedYr = document.getElementById("emissions-year-fixed");
+        const percentFixed = document.getElementById("percent-total-fixed");
+        fixedYr.classList.add("hide");
+        percentFixed.classList.add("hide");
     })
 }
 

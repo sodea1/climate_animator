@@ -4,6 +4,6 @@ export const instructions = () => {
 
     continueBtn[0].addEventListener("click", () => {
         let modal = document.getElementsByClassName("modal");
-        modal[0].classList.add("modal-inactive");
+        modal[0].classList.add("hide");
     })
 }
