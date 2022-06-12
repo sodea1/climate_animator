@@ -272,29 +272,31 @@ button:hover {
 }
 
 .emissions-display {
-  position: relative;
-  margin: auto;
-  width: 50%;
+  display: inline;
+  text-align: center;
 }
 .emissions-display * {
   margin: 2px 6px;
+  float: left;
 }
 .emissions-display .speed-range {
   display: flex;
   align-items: center;
+  margin-top: 16px;
 }
 
 #animate-emissions {
+  font-size: 22px;
   cursor: pointer;
 }
 
 .reset-link {
   font-size: 20px;
-  text-align: center;
   margin-left: 10px;
+  margin-top: 16px;
 }
 .reset-link:hover {
-  color: #40E0D0;
+  color: #000065;
   cursor: pointer;
 }
 
