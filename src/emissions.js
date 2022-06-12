@@ -30,7 +30,6 @@ const stringify = (num) => {
 }
 
 const singleYearCtx = (year, ctx, width, height) => {
-    debugger
     const startTonnes = (ton[year - firstYr].tonnes / 1000000); // 1 million tons per red bubble
 
     for (let i = 0; i < startTonnes; i++) {
@@ -45,13 +44,6 @@ const singleYearCtx = (year, ctx, width, height) => {
         ctx.fill();
     }
 }
-
-// const blankCanvas = () => {
-//     canvasEl = document.getElementById("dots");
-//     canvasEl.width = 650;
-//     canvasEl.height = 480;
-//     ctx = canvasEl.getContext('2d');
-// }
 
 export const createCanvas = (year) => {
     document.getElementsByClassName("dropdown")
@@ -75,7 +67,6 @@ export const createCanvas = (year) => {
     percentTotal.innerHTML = "0%";
     
     if (year) {
-        debugger
         return singleYearCtx(year, ctx, width, height);
     } else {
         const startTonnes = (ton[0].tonnes / 1000000); // 1 million tons per red bubble
@@ -211,7 +202,13 @@ export const renderButton = () => {
 
     reset[0].addEventListener("click", () => {
         document.getElementById("emissions-year").innerHTML = firstYr;
+        document.getElementById("emissions-year").innerHTML = firstYr;
         createCanvas();
+
+        const playBtn = document.getElementById("animate-emissions");
+        playBtn.disabled = false;
+        playBtn.classList.remove("disabled-button");
+
         document.getElementsByClassName("reset-link")[0].classList.add("hide");
         document.getElementById("line").classList.remove("hide");
         const fixedYr = document.getElementById("emissions-year-fixed");

@@ -1,6 +1,8 @@
+@import './fonts.scss';
+@import './colors.scss';
+
 header, body {
-	font-family: fantasy;
-	background-color: cornsilk;
+	font-family: "Cormorant-Garamond";
 	position: relative;
 }
 
@@ -17,7 +19,7 @@ header, body {
 .sub-title {
 	text-align: center;
 	font-size: 24px;
-	color: #000065;
+	color: #212121;
 	margin-top: 6px;
 	padding-bottom: 5px;
 }
