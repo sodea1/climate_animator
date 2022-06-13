@@ -40,13 +40,24 @@
   cursor: pointer;
   margin-top: 10px;
   background-color: #A3DA8D;
+  border: 1px solid $navy;
 }
 
 .reset-link {
   font-size: 20px;
-  margin-left: 10px;
-  margin-top: 16px;
+  font-weight: 700;
+  margin: 10px 6px 2px;
   color: $navy;
+  border: 1px solid $navy;
+  border-radius: 8px;
+  width: 110px;
+  height: 28px;
+  text-align: center;
+  background-color: $brown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 
   &:hover {
     cursor: pointer;
@@ -88,14 +99,14 @@
 #emissions-year {
   position: absolute;
   font-size: 20px;
-  right: -8%;
+  right: -6%;
   font-family: "Nuosu";
 }
 
 #emissions-year-fixed {
   position: absolute;
   font-size: 20px;
-  right: -8%;
+  right: -6%;
   bottom: -3.5%;
   font-family: "Nuosu";
 }
@@ -103,7 +114,7 @@
 #year-max-fixed {
   position: absolute;
   font-size: 20px;
-  right: -8%;
+  right: -6%;
   font-family: "Nuosu";
 }
 
@@ -133,7 +144,7 @@
   position: absolute;
   right: 0;
   top: 100%;
-  font-size: 24px;
+  font-size: 22px;
   font-family: "Nuosu";
 }
 
@@ -157,7 +168,7 @@
 }
 
 .submit-year {
-  background-color: #D19C4C;
+  background-color: $brown;
   opacity: 0.9;
   border-radius: 8px;
   height: 24px;
@@ -165,9 +176,10 @@
   border: none;
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
   margin-left: 6px;
+  border: 1px solid $navy;
 
   &:hover {
     cursor: pointer;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 }

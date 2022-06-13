@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playBtn.classList.add("disabled-button");
     document.getElementById("percent-max-fixed").classList.add("hide");
     document.getElementById("year-max-fixed").classList.add("hide");
+    document.getElementsByClassName("reset-link")[0].style.display = "";
   })
   
   renderMap(iceMap1980);

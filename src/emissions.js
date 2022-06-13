@@ -184,7 +184,7 @@ const generateBubbles = (diff, yr) => {
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.stroke();
-        ctx.fillStyle = "#BEBEBE";
+        ctx.fillStyle = "#fe6f5e";
         ctx.fill();
 
     }    
@@ -202,14 +202,13 @@ export const renderButton = () => {
             let year = document.getElementById("emissions-year").innerHTML;
             let startIdx = parseInt(year) - parseInt(firstYr);
             play.innerHTML = "PAUSE";
-            document.getElementsByClassName("reset-link")[0].classList.add('hide')
+            document.getElementsByClassName("reset-link")[0].style.display = "none";
             beginLoop(startIdx);
         } else if (e.target.innerHTML === "PAUSE") {
-            
             speedToggle();
-            document.getElementsByClassName("reset-link")[0].classList.remove('hide')
+            document.getElementsByClassName("reset-link")[0].classList.remove('hide');
             play.innerHTML = "PLAY";
-            
+            document.getElementsByClassName("reset-link")[0].style.display = "";
         }
     });
 
