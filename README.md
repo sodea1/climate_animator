@@ -18,7 +18,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 2. D3.js
 3. Canvas
 4. HTML5
-5. CSS
+5. SCSS
 
 ## Wireframe
 
