@@ -34,7 +34,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 5. Tuesday - emissions animation
 6. Wednesday - style, format & refactor
 
-## Code Snippets
+## Code Snippet
 
 The function below takes in an amount (measured by a difference in tonnes between current year and previous year) and a year. It renders that many circles on the canvas while respecting constraints enforced by the pixelHeight, which determines the % canvas area that can be occupied by circles.
 
@@ -74,29 +74,6 @@ const generateBubbles = (diff, yr) => {
     }    
 }
 ```
-
-Map shuffle utilizes asynchronous setInterval function.
-```js
-  const renderRepeat = () => {
-      const maps = [
-          iceMap1980,
-          iceMap1990,
-          iceMap2003,
-          iceMap2015
-      ];
-      
-      let i = 0;
-      let clearID = setInterval(() => {
-          if (i === maps.length) {
-              clearInterval(clearID);
-              return;
-          }
-          document.querySelector("#map-box").remove();
-          renderMap(maps[i]);
-          i++;
-      }, 750);
-  };
- ```
 
 ## Wireframe
 
