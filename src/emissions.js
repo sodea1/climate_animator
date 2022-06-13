@@ -44,7 +44,7 @@ const singleYearCtx = (year, ctx, width, height) => {
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, 2 * Math.PI);
         ctx.stroke();
-        ctx.fillStyle = "#BEBEBE";
+        ctx.fillStyle = "#fe6f5e";
         ctx.fill();
     }
 }
@@ -84,7 +84,7 @@ export const createCanvas = (year) => {
             ctx.beginPath();
             ctx.arc(x, y, radius, 0, 2 * Math.PI);
             ctx.stroke();
-            ctx.fillStyle = "#BEBEBE";
+            ctx.fillStyle = "#fe6f5e";
             ctx.fill();
         }
     }
