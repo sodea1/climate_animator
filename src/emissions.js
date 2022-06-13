@@ -9,6 +9,10 @@ var ton = tonnes();
 var firstYr = ton[0].year;
 var lastYr = parseInt(ton[ton.length - 1].year);
 
+export const yearTonnes = (year) => {
+    return stringify(parseInt(ton[parseInt(year) - firstYr].tonnes));
+}
+
 const stringify = (num) => {
     let str = "";
     let count = 0;
@@ -124,7 +128,15 @@ const drawLine = (yr, differences) => {
     line.style.top = `${ceiling - 2}%`;
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
     liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes)) + " tonnes";
-    percentTotal.innerHTML = `${Math.round(percentTonnes * 100)}%`;
+
+    let adjust = yr === 2020 ? 2 : 0;
+    percentTotal.innerHTML = `${Math.round(percentTonnes * 100 + adjust)}%`;
+
+    if (yr === 2020) {
+        const playBtn = document.getElementById("animate-emissions");
+        playBtn.classList.add("disabled-button");
+        playBtn.disabled = true;
+    }
 }
 
 const speedToggle = () => {
@@ -206,9 +218,12 @@ export const renderButton = () => {
         document.getElementById("emissions-year").innerHTML = firstYr;
         createCanvas();
 
+        const yrTonnes = document.getElementById("year-tonnes");
+        yrTonnes.innerHTML = '';
+
         const playBtn = document.getElementById("animate-emissions");
-        playBtn.disabled = false;
         playBtn.classList.remove("disabled-button");
+        playBtn.disabled = false;
 
         document.getElementById("percent-max-fixed").classList.remove("hide");
         document.getElementById("year-max-fixed").classList.remove("hide");

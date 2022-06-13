@@ -9,6 +9,21 @@ header, body {
 .workspace {
 	display: flex;
 	justify-content: space-around;
+	padding-top: 12px;
+	height: 100vh;
+
+	&::before {
+		content: "";
+		background-image: url(../assets/earth.jpg);
+		background-size: cover;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		opacity: 0.3;
+		z-index: -1;
+	}
 }
 
 .geography {

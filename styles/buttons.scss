@@ -16,7 +16,7 @@ button {
   font-size: 18px;
   color: #212121;
   cursor: pointer;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
@@ -32,7 +32,6 @@ button:hover {
 }
 
 .disabled-button {
-  // background-color: none;
   opacity: 0.2;
   pointer-events: none;
 }

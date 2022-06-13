@@ -1,5 +1,5 @@
 import { buttonMaker } from "./buttons";
-import { createCanvas, renderButton } from "./emissions";
+import { createCanvas, renderButton, yearTonnes } from "./emissions";
 import { renderMap, iceMap1980, animate } from "./map";
 import { instructions } from "./modal";
 
@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   const yearForm = document.getElementsByClassName("dropdown");
+
   yearForm[0].addEventListener("change", (e) => {
     document.getElementsByClassName("input-year")[0].value = e.target.value;
   })
+
   yearForm[0].addEventListener("submit", (e) => {
     e.preventDefault();
     // CLEAR CANVAS
@@ -36,12 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementsByClassName("errors")[0].innerHTML = "";
     createCanvas(year);
 
+    // Display tonnes of given year
+    const yrTonnes = document.getElementById("year-tonnes");
+    yrTonnes.innerHTML = yearTonnes(year) + ' tonnes';
+
     // HIDE LINE & STATS AND SHOW RESET, DISABLE PLAY
     document.getElementById("line").classList.add("hide");
     document.getElementsByClassName("reset-link")[0].classList.remove("hide");
     const playBtn = document.getElementById("animate-emissions");
     playBtn.disabled = true;
     playBtn.classList.add("disabled-button");
+    document.getElementById("percent-max-fixed").classList.add("hide");
+    document.getElementById("year-max-fixed").classList.add("hide");
   })
   
   renderMap(iceMap1980);

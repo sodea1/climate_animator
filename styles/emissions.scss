@@ -2,6 +2,9 @@
 @import './colors.scss';
 
 .emissions-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 50%;
   min-width: 700px;
 }
@@ -92,7 +95,7 @@
 #emissions-year-fixed {
   position: absolute;
   font-size: 20px;
-  right: -1%;
+  right: -8%;
   bottom: -3.5%;
   font-family: "Nuosu";
 }
@@ -100,21 +103,21 @@
 #year-max-fixed {
   position: absolute;
   font-size: 20px;
-  right: -1%;
+  right: -8%;
   font-family: "Nuosu";
 }
 
 #percent-total {
   position: absolute;
   font-size: 20px;
-  left: -5%;
+  left: -8%;
   font-family: "Nuosu";
 }
 
 #percent-total-fixed {
   position: absolute;
   font-size: 20px;
-  left: -5%;
+  left: -8%;
   bottom: -2.5%;
   font-family: "Nuosu";
 }
@@ -123,7 +126,15 @@
   position: absolute;
   font-family: "Nuosu";
   font-size: 20px;
-  left: -6%;
+  left: -8%;
+}
+
+#year-tonnes {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  font-size: 24px;
+  font-family: "Nuosu";
 }
 
 .dropdown {
@@ -140,18 +151,19 @@
 .errors {
   position: absolute;
   top: 26px;
-  right: 38%;
+  right: 18%;
   font-size: 16px;
   color: red;
 }
 
 .submit-year {
-  background-color: #E9E5D6;
+  background-color: #D19C4C;
+  opacity: 0.9;
   border-radius: 8px;
   height: 24px;
   width: 72px;
   border: none;
-  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
   margin-left: 6px;
 
   &:hover {

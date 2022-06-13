@@ -156,6 +156,20 @@ header, body {
 .workspace {
   display: flex;
   justify-content: space-around;
+  padding-top: 12px;
+  height: 100vh;
+}
+.workspace::before {
+  content: "";
+  background-image: url(../assets/earth.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.3;
+  z-index: -1;
 }
 
 .geography {
@@ -199,7 +213,6 @@ h3#pad {
 header {
   background-color: #E9E5D6;
   border-bottom: 2px solid #000065;
-  margin-bottom: 12px;
 }
 
 .title {
@@ -282,7 +295,7 @@ button {
   font-size: 18px;
   color: #212121;
   cursor: pointer;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 }
 
 button:hover {
@@ -315,6 +328,9 @@ button:hover {
   font-weight: normal;
 }
 .emissions-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 50%;
   min-width: 700px;
 }
@@ -402,7 +418,7 @@ button:hover {
 #emissions-year-fixed {
   position: absolute;
   font-size: 20px;
-  right: -1%;
+  right: -8%;
   bottom: -3.5%;
   font-family: "Nuosu";
 }
@@ -410,21 +426,21 @@ button:hover {
 #year-max-fixed {
   position: absolute;
   font-size: 20px;
-  right: -1%;
+  right: -8%;
   font-family: "Nuosu";
 }
 
 #percent-total {
   position: absolute;
   font-size: 20px;
-  left: -5%;
+  left: -8%;
   font-family: "Nuosu";
 }
 
 #percent-total-fixed {
   position: absolute;
   font-size: 20px;
-  left: -5%;
+  left: -8%;
   bottom: -2.5%;
   font-family: "Nuosu";
 }
@@ -433,7 +449,15 @@ button:hover {
   position: absolute;
   font-family: "Nuosu";
   font-size: 20px;
-  left: -6%;
+  left: -8%;
+}
+
+#year-tonnes {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  font-size: 24px;
+  font-family: "Nuosu";
 }
 
 .dropdown {
@@ -449,18 +473,19 @@ button:hover {
 .errors {
   position: absolute;
   top: 26px;
-  right: 38%;
+  right: 18%;
   font-size: 16px;
   color: red;
 }
 
 .submit-year {
-  background-color: #E9E5D6;
+  background-color: #D19C4C;
+  opacity: 0.9;
   border-radius: 8px;
   height: 24px;
   width: 72px;
   border: none;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   margin-left: 6px;
 }
 .submit-year:hover {
@@ -492,12 +517,14 @@ button:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 20px solid #000065;
+  border: 20px solid #E9E5D6;
   background-color: #fff;
   z-index: 10;
 }
 .instructions-container button {
   width: 160px;
+  height: 40px;
+  font-family: "Cormorant-Garamond";
 }
 
 .instructions-sections {
@@ -514,6 +541,7 @@ button:hover {
   text-align: center;
   font-size: 20px;
   text-decoration: underline;
+  line-height: 1.33;
 }
 
 ul > li {
