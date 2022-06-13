@@ -109,16 +109,17 @@ const drawLine = (yr, differences) => {
     
     let ceiling = (1 - percentTonnes) * 100;
 
-    
     if (ceiling < 0) {
         ceiling = 0;
+    } else if (ceiling < 5) {
+        document.getElementById("percent-max-fixed").classList.add("hide");
+        document.getElementById("year-max-fixed").classList.add("hide");
     } else if (ceiling < 92) {
-        
         const fixedYr = document.getElementById("emissions-year-fixed");
         const percentFixed = document.getElementById("percent-total-fixed");
         fixedYr.classList.remove("hide");
         percentFixed.classList.remove("hide");
-    }
+    } 
     
     line.style.top = `${ceiling - 2}%`;
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
@@ -208,6 +209,9 @@ export const renderButton = () => {
         const playBtn = document.getElementById("animate-emissions");
         playBtn.disabled = false;
         playBtn.classList.remove("disabled-button");
+
+        document.getElementById("percent-max-fixed").classList.remove("hide");
+        document.getElementById("year-max-fixed").classList.remove("hide");
 
         document.getElementsByClassName("reset-link")[0].classList.add("hide");
         document.getElementById("line").classList.remove("hide");

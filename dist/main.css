@@ -394,30 +394,46 @@ button:hover {
 
 #emissions-year {
   position: absolute;
-  font-size: 22px;
-  right: -8%;
+  font-size: 20px;
+  right: -9%;
   font-family: "Nuosu";
 }
 
 #emissions-year-fixed {
   position: absolute;
-  font-size: 22px;
+  font-size: 20px;
   right: -1%;
   bottom: -3.5%;
   font-family: "Nuosu";
 }
 
+#year-max-fixed {
+  position: absolute;
+  font-size: 20px;
+  right: -1%;
+  font-family: "Nuosu";
+}
+
 #percent-total {
   position: absolute;
+  font-size: 20px;
   left: -5%;
   font-family: "Nuosu";
 }
 
 #percent-total-fixed {
   position: absolute;
+  font-size: 20px;
   left: -5%;
   bottom: -2.5%;
   font-family: "Nuosu";
+}
+
+#percent-max-fixed {
+  position: absolute;
+  font-family: "Nuosu";
+  font-size: 20px;
+  left: -6%;
 }
 
 .dropdown {
@@ -427,6 +443,7 @@ button:hover {
 .dropdown input[type=text] {
   font-family: "Nuosu";
   outline: #212121;
+  width: 50px;
 }
 
 .errors {
@@ -441,7 +458,7 @@ button:hover {
   background-color: #E9E5D6;
   border-radius: 8px;
   height: 24px;
-  width: 100px;
+  width: 72px;
   border: none;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   margin-left: 6px;
