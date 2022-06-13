@@ -87,4 +87,5 @@ const generateBubbles = (diff, yr) => {
 
 3. User can 'Start' animation displaying each map chronologically.
 
-4. User can 'Start' animation of greenhouse gas emissions over time.
+4. User can 'Start' or 'PAUSE' animation of greenhouse gas emissions over time.
+
