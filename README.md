@@ -20,20 +20,6 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 4. HTML5
 5. SCSS
 
-## Wireframe
-
-![alt text](./assets//wireframev3.png "wireframe")
-
-## Functionality
-
-1. Displays geographic arctic ice cap extent across four time periods.
-
-2. User can toggle to view arctic ice extent by year.
-
-3. User can 'Start' animation displaying each map chronologically.
-
-4. User can 'Start' animation of greenhouse gas emissions over time.
-
 ### Arctic Ice Animation
 ![maps](https://user-images.githubusercontent.com/40174573/173451989-530f47e0-a149-4cc2-877a-82768166f7ab.gif)
 ### Greenhouse Gas Emissions Animation
@@ -49,7 +35,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 6. Wednesday - style, format & refactor
 
 ### Code for Map Animation
-<pre><code>
+```js
   const renderRepeat = () => {
       const maps = [
           iceMap1980,
@@ -69,4 +55,18 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
           i++;
       }, 750);
   };
-</code></pre>
+ ```
+
+## Wireframe
+
+![alt text](./assets//wireframev3.png "wireframe")
+
+## Functionality
+
+1. Displays geographic arctic ice cap extent across four time periods.
+
+2. User can toggle to view arctic ice extent by year.
+
+3. User can 'Start' animation displaying each map chronologically.
+
+4. User can 'Start' animation of greenhouse gas emissions over time.
