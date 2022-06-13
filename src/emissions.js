@@ -209,7 +209,6 @@ export const renderButton = () => {
             beginLoop(startIdx);
         } else if (e.target.innerHTML === "PAUSE") {
             speedToggle();
-            // document.getElementsByClassName("reset-link")[0].classList.remove('hide');
             play.innerHTML = "PLAY";
             document.getElementsByClassName("reset-link")[0].style.display = "";
         }
