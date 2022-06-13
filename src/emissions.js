@@ -293,11 +293,10 @@ const beginLoop = async (startIdx) => {
 
 const sleep = (ms, yr) => {
     let play = document.getElementById("animate-emissions");
-    let startYr = parseInt(firstYr) + 1;
 
     if (play.innerHTML === "PAUSE") {
         return new Promise(resolve => setTimeout(resolve, ms));
-    } else { // MUST INCLUDE DOUBLE CONDITIONAL OTHERIWSE RESTART BUGS AFTER HITTING PAUSE ONCE
+    } else {
         return new Promise(resolve => setTimeout(resolve, ms * 10000000))
     }
 };
