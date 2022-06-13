@@ -34,7 +34,48 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 5. Tuesday - emissions animation
 6. Wednesday - style, format & refactor
 
-## Code Snippet displaying Map Shuffle
+## Code Snippets
+
+The function below takes in an amount (measured by a difference in tonnes between current year and previous year) and a year. It renders that many circles on the canvas while respecting constraints enforced by the pixelHeight, which determines the % canvas area that can be occupied by circles.
+
+  * totalTonnes = all greenhouse gas emissions from 1750 to 2020
+  * cumulativeTonnes = greenhouse gas emissions from 1750 to the current year (of the animation)
+  * pixelHeight = cumulativeTonnes / totalTonnes; used to calculate y, the pixel height value constraint 
+
+```js
+const generateBubbles = (diff, yr) => {
+    document.getElementById("emissions-year").innerHTML = yr;
+
+    let cumArr = ton.slice(0, (yr - firstYr));
+    let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
+    const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
+    const percentTonnes = (cumulativeTonnes / totalTonnes); // percentage of container filled based on year
+    const pixelHeight = height * percentTonnes;
+
+    for (let i = 0; i < diff; i++) {
+        let x = Math.random() * (width);
+        if (x < 1) {
+            x += 1;
+        }
+
+        let y = height - (Math.random() * (pixelHeight));
+        if (y >= 479) {
+            y -= 1;
+        } else if (y <= 0) {
+            y += 1;
+        }
+        
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fillStyle = "#fe6f5e";
+        ctx.fill();
+
+    }    
+}
+```
+
+Map shuffle utilizes asynchronous setInterval function.
 ```js
   const renderRepeat = () => {
       const maps = [
