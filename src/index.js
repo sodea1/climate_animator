@@ -27,6 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return document.getElementsByClassName("errors")[0].innerHTML = "* Year must be between 1750 and 2020";
     }
 
+    const speedEles = document.getElementsByClassName("speed-toggle");
+    for (let i = 0; i < speedEles.length; i++) {
+      speedEles[i].classList.add("hide");
+    }
+
     // CLEAR ERRORS IF VALIDATIONS PASS
     document.getElementsByClassName("errors")[0].innerHTML = "";
     createCanvas(year);
