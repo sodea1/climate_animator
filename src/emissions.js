@@ -100,7 +100,7 @@ const generateTonnesSeq = () => {
     return sequentialTonnes;
 }
 
-const drawLine = (yr, differences) => {
+const drawLine = (yr) => {
     const liveTonnes = document.getElementById("live-tonnes");
     const percentTotal = document.getElementById("percent-total");
     const line = document.getElementById("line");
@@ -136,6 +136,9 @@ const drawLine = (yr, differences) => {
         const playBtn = document.getElementById("animate-emissions");
         playBtn.classList.add("disabled-button");
         playBtn.disabled = true;
+
+        const resetBtn = document.getElementsByClassName("reset-link");
+        resetBtn[0].style.display = "";
     }
 }
 
@@ -206,7 +209,7 @@ export const renderButton = () => {
             beginLoop(startIdx);
         } else if (e.target.innerHTML === "PAUSE") {
             speedToggle();
-            document.getElementsByClassName("reset-link")[0].classList.remove('hide');
+            // document.getElementsByClassName("reset-link")[0].classList.remove('hide');
             play.innerHTML = "PLAY";
             document.getElementsByClassName("reset-link")[0].style.display = "";
         }
@@ -227,7 +230,7 @@ export const renderButton = () => {
         document.getElementById("percent-max-fixed").classList.remove("hide");
         document.getElementById("year-max-fixed").classList.remove("hide");
 
-        document.getElementsByClassName("reset-link")[0].classList.add("hide");
+        document.getElementsByClassName("reset-link")[0].style.display = "";
         document.getElementById("line").classList.remove("hide");
         const fixedYr = document.getElementById("emissions-year-fixed");
         const percentFixed = document.getElementById("percent-total-fixed");
@@ -278,9 +281,9 @@ const beginLoop = async (startIdx) => {
     }
     
     for (let num = startIdx; num < differences.length; num++) {
-        drawLine(yrsArr[num], differences);
-        await sleep(speed, yrsArr[num]);
         generateBubbles(differences[num], yrsArr[num]);
+        drawLine(yrsArr[num]);
+        await sleep(speed, yrsArr[num]);
 
         if (num === differences.length - 1) {
             document.getElementsByClassName("emissions-year").innerHTML = 2020;
