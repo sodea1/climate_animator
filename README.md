@@ -20,9 +20,9 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 4. HTML5
 5. SCSS
 
-### Arctic Ice Animation
+## Arctic Ice Animation
 ![maps](https://user-images.githubusercontent.com/40174573/173451989-530f47e0-a149-4cc2-877a-82768166f7ab.gif)
-### Greenhouse Gas Emissions Animation
+## Greenhouse Gas Emissions Animation
 ![gases](https://user-images.githubusercontent.com/40174573/173451650-a8fa34ee-5f1d-46e4-b90c-941e71bbdeb8.gif)
 
 ## Implementation Timeline
@@ -34,7 +34,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 5. Tuesday - emissions animation
 6. Wednesday - style, format & refactor
 
-### Code for Map Animation
+## Code Snippet displaying Map Shuffle
 ```js
   const renderRepeat = () => {
       const maps = [
