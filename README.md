@@ -39,8 +39,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 ![alt text](./assets/arctic_ice_extent.gif)
 
 ### Greenhouse Gas Emissions Animation
-
-![alt text](./assets/emissions_bubbles.gif)
+![gases](https://user-images.githubusercontent.com/40174573/173451650-a8fa34ee-5f1d-46e4-b90c-941e71bbdeb8.gif)
 
 ## Implementation Timeline
 
