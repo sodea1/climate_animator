@@ -35,9 +35,7 @@ Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 4. User can 'Start' animation of greenhouse gas emissions over time.
 
 ### Arctic Ice Animation
-
-![alt text](./assets/arctic_ice_extent.gif)
-
+![maps](https://user-images.githubusercontent.com/40174573/173451989-530f47e0-a149-4cc2-877a-82768166f7ab.gif)
 ### Greenhouse Gas Emissions Animation
 ![gases](https://user-images.githubusercontent.com/40174573/173451650-a8fa34ee-5f1d-46e4-b90c-941e71bbdeb8.gif)
 
