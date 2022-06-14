@@ -67,7 +67,7 @@ export const createCanvas = (year) => {
     const liveTonnes = document.getElementById("live-tonnes");
     const percentTotal = document.getElementById("percent-total");
     // liveTonnes.style.top = '99%';
-    liveTonnes.innerHTML = stringify(ton[0].tonnes) + " tonnes";
+    liveTonnes.innerHTML = stringify(ton[0].tonnes) + " total tonnes";
     percentTotal.innerHTML = "0%";
     
     if (year) {
@@ -127,7 +127,7 @@ const drawLine = (yr) => {
     
     line.style.top = `${ceiling - 2}%`;
     // liveTonnes.innerHTML = `${stringify(minTonnes)}`; // NEED TO ACCUMULATE TONNES IN MIN TONNES
-    liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes)) + " tonnes";
+    liveTonnes.innerHTML = stringify(parseInt(cumulativeTonnes)) + " total tonnes";
 
     let adjust = yr === 2020 ? 2 : 0;
     percentTotal.innerHTML = `${Math.round(percentTonnes * 100 + adjust)}%`;
