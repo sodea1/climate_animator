@@ -2,7 +2,7 @@
   <img src="./assets/website_logo.png">
 </p>
 
-Climate Animator visualizes historical climate change data to emphasize the scale of climate impact to planet Earth. Users can use toggle buttons to view changes in arctic sea ice extent and greenhouse gas emissions over time.
+Climate Animator is an interactive data visualization tool depicting arctic sea ice extent and greenhouse gas emissions over time. 
 
 Live Site: [Climate Animator](https://sodea1.github.io/climate_animator/)
 
