@@ -13,6 +13,7 @@ export const yearTonnes = (year) => {
     return stringify(parseInt(ton[parseInt(year) - firstYr].tonnes));
 }
 
+// turns a number into a string separated by commas
 const stringify = (num) => {
     let str = "";
     let count = 0;
@@ -33,6 +34,7 @@ const stringify = (num) => {
     return str;
 }
 
+// given a year that user inputs, render all tonnes from 1750 to that year on canvas and adjust the line
 const singleYearCtx = (year, ctx, width, height) => {
     const startTonnes = (ton[year - firstYr].tonnes / 1000000); // 1 million tons per red bubble
 
@@ -49,6 +51,9 @@ const singleYearCtx = (year, ctx, width, height) => {
     }
 }
 
+// draw canvas, set controls and the line at starting position
+// if specific year entered, render the singleYearCtx
+// else draw all the tonnes for year 1750 (aka render starting canvas)
 export const createCanvas = (year) => {
     document.getElementsByClassName("dropdown")
     document.getElementById("animate-emissions").innerHTML = "PLAY";
@@ -90,25 +95,20 @@ export const createCanvas = (year) => {
     }
 }
 
-
-const generateTonnesSeq = () => {
-    const sequentialTonnes = [];
-    ton.forEach((hash) => {
-        sequentialTonnes.push(parseInt(hash["tonnes"]) / 1000000);
-    });
-
-    return sequentialTonnes;
-}
-
+// sets the dynamic ceiling of the canvas
 const drawLine = (yr) => {
     const liveTonnes = document.getElementById("live-tonnes");
     const percentTotal = document.getElementById("percent-total");
     const line = document.getElementById("line");
     
+    // ton is an array of objects containing year: tonnes pairs
     let cumArr = ton.slice(0, (yr - firstYr));
     
+    // tonnes by start-current year
     let cumulativeTonnes = cumArr.reduce((acc, obj) => acc + parseInt(obj.tonnes), 0)
+    // tonnes from 1750-2022
     const totalTonnes = Object.values(ton).reduce((sum, n) => parseInt(n.tonnes) + sum, 0);
+    // cumulative / total = percent
     const percentTonnes = (cumulativeTonnes / totalTonnes);  // percentage of container filled based on year
     
     let ceiling = (1 - percentTonnes) * 100;
@@ -142,6 +142,7 @@ const drawLine = (yr) => {
     }
 }
 
+// allows user to adjust speed of animation; hides speed toggle button if animation isn't paused
 const speedToggle = () => {
     const speedEles = document.getElementsByClassName("speed-toggle");
     const year = document.getElementById("emissions-year");
@@ -160,8 +161,12 @@ const speedToggle = () => {
             speedEles[i].classList.remove("hide");
         }
     }
-}
+};
 
+// randomly draws bubbles under the canvas ceiling
+// receives the additional amount of bubbles for an additional year and the year that has been added
+// only renders the amount for any given year
+// called inside of a loop in beginLoop that iterates over each year, calculates additional bubbles (diff) and invokes generateBubbles()
 const generateBubbles = (diff, yr) => {
     document.getElementById("emissions-year").innerHTML = yr;
 
@@ -194,6 +199,7 @@ const generateBubbles = (diff, yr) => {
 }
 
 // adds event listener conditional for start/pause
+// event listeners show/hide control panel based on certain user actions
 export const renderButton = () => {
     document.getElementById("emissions-year").innerHTML = firstYr;
     let play = document.getElementById("animate-emissions");
@@ -246,6 +252,7 @@ export const renderButton = () => {
     })
 }
 
+// math to create a proportionately slower/faster animation based on speed dial in html
 const getSpeed = () => {
     let speed = document.getElementsByClassName("speed");
     let value = parseInt(speed[0].value);
@@ -260,7 +267,18 @@ const getSpeed = () => {
     return adjusted;
 }
 
+// creates an array of total tonnes per year
+const generateTonnesSeq = () => {
+    const sequentialTonnes = [];
+    ton.forEach((hash) => {
+        sequentialTonnes.push(parseInt(hash["tonnes"]) / 1000000);
+    });
+
+    return sequentialTonnes;
+};
+
 // async function iterating through each amt difference yr to yr
+
 const beginLoop = async (startIdx) => {
     const sequentialTonnes = generateTonnesSeq();
     const years = d3.range(firstYr, lastYr);
@@ -270,15 +288,17 @@ const beginLoop = async (startIdx) => {
     
     for (let j = 1; j < sequentialTonnes.length + 1; j++) {
         let amtBubbles = sequentialTonnes[j] - sequentialTonnes[j - 1];
-        let nextYr;
-        nextYr = parseInt(years[j - 1]);        
+        let nextYr = parseInt(years[j - 1]);        
         yrsArr.push(nextYr);
         if (nextYr === 2019) {
             yrsArr.push(2020);
         }
         differences.push(amtBubbles);
-    }
+    };
     
+    // iterate through differences array and generate bubbles helper renders bubbles on canvas
+    // draw line is then called to calculate and adjust the ceiling of the canvas
+    // custom sleep function pauses for user-specified amt of time between iterations of years/bubble additions or diffs
     for (let num = startIdx; num < differences.length; num++) {
         generateBubbles(differences[num], yrsArr[num]);
         drawLine(yrsArr[num]);

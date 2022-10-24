@@ -52,12 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("year-max-fixed").classList.add("hide");
     document.getElementsByClassName("reset-link")[0].style.display = "";
   })
-  
+
   renderMap(iceMap1980);
   animate();
   buttonMaker();
-  
   instructions();
   createCanvas();
   renderButton();
+ 
 });
