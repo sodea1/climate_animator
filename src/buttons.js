@@ -20,7 +20,7 @@ export const buttonMaker = () => {
             if (currentMapYear === yrs[i]) {
                 return;
             } else {
-                // remove hidden-button class from all buttons except the one selected
+                // remove hidden-button class from all buttons except one selected
                 for (let j = 0; j < yrs.length; j++) {
                     if (yrs[i] !== yrs[j]) {
                         document.getElementById(yrs[j]).classList.remove("hidden-button");
